@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>953210882613-dg4cuk2i5sa44gor48tuitm4f251oaea.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.953210882613-dg4cuk2i5sa44gor48tuitm4f251oaea</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCafoZO6ROYC4WqLblqNRvEKx28OUgXqUk</string>
+	<key>GCM_SENDER_ID</key>
+	<string>953210882613</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.Glam-Art-Media</string>
+	<key>PROJECT_ID</key>
+	<string>glam-art-media</string>
+	<key>STORAGE_BUCKET</key>
+	<string>glam-art-media.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:953210882613:ios:c58993c2f3d7d211963f7c</string>
+	<key>DATABASE_URL</key>
+	<string>https://glam-art-media.firebaseio.com</string>
+</dict>
+</plist>
