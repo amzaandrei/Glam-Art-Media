@@ -63,3 +63,69 @@ extension String {
         return Data(self.utf8).base64EncodedString()
     }
 }
+
+extension NSObject {
+    
+    typealias JSONStandard = [String: AnyObject]
+    
+    func verifyResponseData(data: Data) -> ([JSONStandard]?, Bool?, String?){
+        var json: [JSONStandard]?
+        var state: Bool?
+        var err: String?
+        do{
+            json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [JSONStandard]
+            state = true
+        }catch let errCat{
+            state = false
+            err = errCat.localizedDescription
+        }
+        return (json, state, err)
+    }
+    
+}
+
+extension TaskController {
+    
+    func convertDataToTime(dateStr: String) -> [String: Int]?{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z"
+        var comp = DateComponents()
+        guard let date = dateFormatter.date(from: dateStr) else { return nil }
+        comp.hour = Calendar.current.component(.hour, from: date)
+        comp.minute = Calendar.current.component(.minute, from: date)
+        comp.month = Calendar.current.component(.month, from: date)
+        comp.day = Calendar.current.component(.day, from: date)
+        
+        let allTimes : [String: Any] = [
+            "hour": comp.hour!,
+            "minute": comp.minute!,
+            "month": comp.month!,
+            "day": comp.day!
+        ]
+        return allTimes as! [String : Int]
+    }
+    
+    func findTheMonthStringFromInt(_ monthNr: Int) -> String{
+        
+        var val: String!
+        
+        switch (monthNr) {
+            case 1: val = "Ianuarie"; break
+            case 2: val = "Februarie"; break
+            case 3: val = "Martie"; break
+            case 4: val = "Aprilie"; break
+            case 5: val = "Mai"; break
+            case 6: val = "Iunie"; break
+            case 7: val = "Iulie"; break
+            case 8: val = "August"; break
+            case 9: val = "Septembrie"; break
+            case 10: val = "Octombrie"; break
+            case 11: val = "Noiembrie"; break
+            case 12: val = "Decembrie"; break
+            default: break
+        }
+        return val
+    }
+    
+}
+

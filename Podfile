@@ -10,8 +10,9 @@ target 'Glam Art Media' do
 	pod 'Alamofire', '~> 5.0.0-rc.3'
 	pod 'OAuthSwift', '~> 2.0.0'
 	pod 'GoogleSignIn', '< 5.0.0'
-	pod 'FBSDKLoginKit' '5.8.0'
-	pod 'FBSDKShareKit' '5.8.0'
+	pod 'BEMCheckBox'
+	pod 'Braintree'
+	pod 'BraintreeDropIn'
 
 end
 

@@ -8,8 +8,9 @@
 
 import UIKit
 import OAuthSwift
+import Alamofire
 
-class TaskController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class TaskController: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     let boardsId = "boardsId"
     let listsId = "listsId"
@@ -18,6 +19,8 @@ class TaskController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var boardsArr = [TrelloBoardModel]()
     var listsArr = [TrelloListModel]()
     var cardsArr = [TrelloCardModel]()
+    var cardsChecklistsArr = [TrelloCardModelCheckLists]()
+    var cardsMembersArr = [TrelloCardModelMembers]()
     
     lazy var boardsCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -76,48 +79,51 @@ class TaskController: UIViewController, UICollectionViewDelegate, UICollectionVi
         return btt
     }()
     
-    override func viewDidLoad() {
-        view.backgroundColor = .white
-        
-        view.addSubview(boardsCollectionView)
-        view.addSubview(listsCollectionView)
-        view.addSubview(cardsCollectionView)
-        view.addSubview(profileImage)
-        view.addSubview(userNameLabel)
-//        view.addSubview(trelloLogInButt)
-        addConstraints()
-        requestBoards()
-        
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.backgroundColor = .white
+                
+                self.addSubview(boardsCollectionView)
+                self.addSubview(listsCollectionView)
+                self.addSubview(cardsCollectionView)
+                self.addSubview(profileImage)
+                self.addSubview(userNameLabel)
+//                self.addSubview(trelloLogInButt)
+                addConstraints()
+                requestBoards()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     func addConstraints(){
         
         NSLayoutConstraint.activate([
-            profileImage.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 20),
-            profileImage.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 70),
+            profileImage.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20),
+            profileImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 70),
             profileImage.heightAnchor.constraint(equalToConstant: 30),
             profileImage.widthAnchor.constraint(equalToConstant: 30),
             userNameLabel.leftAnchor.constraint(equalTo: profileImage.rightAnchor, constant: 15),
-            userNameLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 70),
+            userNameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 70),
             
             boardsCollectionView.topAnchor.constraint(equalTo: userNameLabel.bottomAnchor, constant: 30),
-            boardsCollectionView.leftAnchor.constraint(equalTo: self.view.leftAnchor),
-            boardsCollectionView.rightAnchor.constraint(equalTo: self.view.rightAnchor),
+            boardsCollectionView.leftAnchor.constraint(equalTo: self.leftAnchor),
+            boardsCollectionView.rightAnchor.constraint(equalTo: self.rightAnchor),
             boardsCollectionView.heightAnchor.constraint(equalToConstant: 30),
             
             listsCollectionView.topAnchor.constraint(equalTo: boardsCollectionView.bottomAnchor, constant: 30),
-            listsCollectionView.leftAnchor.constraint(equalTo: self.view.leftAnchor),
-            listsCollectionView.rightAnchor.constraint(equalTo: self.view.rightAnchor),
+            listsCollectionView.leftAnchor.constraint(equalTo: self.leftAnchor),
+            listsCollectionView.rightAnchor.constraint(equalTo: self.rightAnchor),
             listsCollectionView.heightAnchor.constraint(equalToConstant: 30),
             
             cardsCollectionView.topAnchor.constraint(equalTo: listsCollectionView.bottomAnchor, constant: 30),
-            cardsCollectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
-            cardsCollectionView.leftAnchor.constraint(equalTo: self.view.leftAnchor),
-            cardsCollectionView.rightAnchor.constraint(equalTo: self.view.rightAnchor),
-//            cardsCollectionView.heightAnchor.constraint(equalToConstant: 200)
+            cardsCollectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            cardsCollectionView.leftAnchor.constraint(equalTo: self.leftAnchor),
+            cardsCollectionView.rightAnchor.constraint(equalTo: self.rightAnchor),
             
-//            trelloLogInButt.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-//            trelloLogInButt.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+//            trelloLogInButt.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+//            trelloLogInButt.centerYAnchor.constraint(equalTo: self.centerYAnchor),
 //            trelloLogInButt.heightAnchor.constraint(equalToConstant: 50),
 //            trelloLogInButt.widthAnchor.constraint(equalToConstant: 50)
             
@@ -126,39 +132,56 @@ class TaskController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     @objc func logInTrello(){
+        let config = URLSessionConfiguration.ephemeral
+        config.waitsForConnectivity = true
         let urlStr = "https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=" + UserModelTrelloAuth.consumerKey
         guard let url = URL(string: urlStr) else { return }
         UIApplication.shared.open(url)
         
-//        let oauthswift = OAuth1Swift(
-//            consumerKey: UserModelTrelloAuth.consumerKey,
-//            consumerSecret: UserModelTrelloAuth.consumerSecret,
-//            requestTokenUrl: "https://trello.com/1/OAuthGetRequestToken",
-//            authorizeUrl:    "https://trello.com/1/OAuthAuthorizeToken",
-//            accessTokenUrl:  "https://trello.com/1/OAuthGetAccessToken"
-//        )
-//        // authorize
-//        let handle = oauthswift.authorize(
-//            withCallbackURL: URL(string: "oauth-swift://oauth-callback/twitter")!) { result in
-//            switch result {
-//            case .success(let (credential, response, parameters)):
-//              print(credential.oauthToken)
-//              print(credential.oauthTokenSecret)
-////                      print(parameters["user_id"])
-//              // Do your request
-//            case .failure(let error):
-//              print(error.localizedDescription)
-//            }
+        let paramaters: [String: String] = [
+            "consumerKey": UserModelTrelloAuth.consumerKey,
+            "consumerSecret": UserModelTrelloAuth.consumerSecret,
+            "requestTokenUrl": "https://trello.com/1/OAuthGetRequestToken?scope=read,write,account&expiration=never&name=AppName",
+            "authorizeUrl":    "https://trello.com/1/OAuthAuthorizeToken?scope=read,write,account&expiration=never&name=AppName",
+            "accessTokenUrl":  "https://trello.com/1/OAuthGetAccessToken?scope=read,write,account&expiration=never&name=AppName",
+            "callbackURL": "oauth-swift://oauth-callback/trello"
+        ]
+        
+//        AF.request(urlStr, method: .post, parameters: paramaters).responseJSON { (response) in
+//            print(response)
 //        }
-//        oauthswift.authorizeURLHandler = SafariURLHandler(viewController: self, oauthSwift: oauthswift)
+        
+        let oauthswift = OAuth1Swift(
+            consumerKey: UserModelTrelloAuth.consumerKey,
+            consumerSecret: UserModelTrelloAuth.consumerSecret,
+            requestTokenUrl: "https://trello.com/1/OAuthGetRequestToken?scope=read,write,account&expiration=never&name=AppName",
+            authorizeUrl:    "https://trello.com/1/OAuthAuthorizeToken?scope=read,write,account&expiration=never&name=AppName",
+            accessTokenUrl:  "https://trello.com/1/OAuthGetAccessToken?scope=read,write,account&expiration=never&name=AppName"
+        )
+        // authorize
+        oauthswift.authorizeURLHandler = SafariURLHandler(viewController: MainController(), oauthSwift: oauthswift)
+        let handle = oauthswift.authorize(
+            withCallbackURL: URL(string: "oauth-swift://oauth-callback/trello")!) { result in
+            switch result {
+            case .success(let (credential, response, parameters)):
+              print(credential.oauthToken)
+              print(credential.oauthTokenSecret)
+//                      print(parameters["user_id"])
+              // Do your request
+            case .failure(let error):
+              print(error.localizedDescription)
+            }
+        }
+        
         
     }
     
     func requestBoards(){
-        TrelloService.sharedInstance.getBoardsRef { (res, data) in
+        TrelloServiceGet.sharedInstance.getBoardsRef { (res, data) in
             if res == nil, let dataEx = data {
                 for (_, elemData) in dataEx.enumerated(){
                     let initi = TrelloBoardModel(dict: elemData)
+                    print(initi.id)
                     self.boardsArr.append(initi)
                     DispatchQueue.main.async {
                         self.boardsCollectionView.delegate = self
@@ -171,7 +194,7 @@ class TaskController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func requestListsFromBoards(id: String){
-        TrelloService.sharedInstance.getListRef(boardId: id) { (res, data) in
+        TrelloServiceGet.sharedInstance.getListRef(boardId: id) { (res, data) in
             if res == nil, let dataEx = data{
                 for(_, elemData) in dataEx.enumerated(){
                     DispatchQueue.main.async {
@@ -181,16 +204,13 @@ class TaskController: UIViewController, UICollectionViewDelegate, UICollectionVi
                     }
                     let initi = TrelloListModel(dict: elemData)
                     self.listsArr.append(initi)
+                    print("list" + "\(initi.id)")
 //                    self.requestAllCardsFromAList(id: initi.id)
                 }
-                self.refreshUI()
             }
         }
     }
     
-    
-    func refreshUI(){
-    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.boardsCollectionView{
@@ -230,46 +250,6 @@ class TaskController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
     }
     
-    func convertDataToTime(dateStr: String) -> [String: Int]?{
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z"
-        var comp = DateComponents()
-        guard let date = dateFormatter.date(from: dateStr) else { return nil }
-        comp.hour = Calendar.current.component(.hour, from: date)
-        comp.minute = Calendar.current.component(.minute, from: date)
-        comp.month = Calendar.current.component(.month, from: date)
-        comp.day = Calendar.current.component(.day, from: date)
-        
-        let allTimes : [String: Any] = [
-            "hour": comp.hour!,
-            "minute": comp.minute!,
-            "month": comp.month!,
-            "day": comp.day!
-        ]
-        return allTimes as! [String : Int]
-    }
-    
-    func findTheMonthStringFromInt(_ monthNr: Int) -> String{
-        
-        var val: String!
-        
-        switch (monthNr) {
-            case 1: val = "Ianuarie"; break
-            case 2: val = "Februarie"; break
-            case 3: val = "Martie"; break
-            case 4: val = "Aprilie"; break
-            case 5: val = "Mai"; break
-            case 6: val = "Iunie"; break
-            case 7: val = "Iulie"; break
-            case 8: val = "August"; break
-            case 9: val = "Septembrie"; break
-            case 10: val = "Octombrie"; break
-            case 11: val = "Noiembrie"; break
-            case 12: val = "Decembrie"; break
-            default: break
-        }
-        return val
-    }
     
     var cellWidth: CGFloat = 280
     
@@ -288,8 +268,8 @@ class TaskController: UIViewController, UICollectionViewDelegate, UICollectionVi
         var edgeInsets: CGFloat = 0
         
         if collectionView == self.cardsCollectionView{
-            let numberOfCells = floor(self.view.frame.size.width / self.cellWidth)
-            edgeInsets = (self.view.frame.size.width - (numberOfCells * self.cellWidth)) / (numberOfCells + 1)
+            let numberOfCells = floor(self.frame.size.width / self.cellWidth)
+            edgeInsets = (self.frame.size.width - (numberOfCells * self.cellWidth)) / (numberOfCells + 1)
         }
         
         return UIEdgeInsets(top: 0, left: edgeInsets, bottom: 0, right: edgeInsets)
@@ -307,9 +287,16 @@ class TaskController: UIViewController, UICollectionViewDelegate, UICollectionVi
             self.requestAllCardsFromAList(id: listData.id)
             print(indexPath.row)
         }else{
-            let cardData = cardsArr[indexPath.row]
             let displayCardDetailed = DisplayCardDetailsViewController()
-            self.present(displayCardDetailed, animated: true, completion: nil)
+            displayCardDetailed.cardMainDataArr = cardsArr[indexPath.row]
+            /// FIXME: Fatal error: Index out of range
+//            displayCardDetailed.cardCheckLists = cardsChecklistsArr[indexPath.row]
+            displayCardDetailed.cardsMembersArr = cardsMembersArr[indexPath.row]
+            var topVC = UIApplication.shared.keyWindow?.rootViewController
+            while((topVC!.presentedViewController) != nil) {
+                 topVC = topVC!.presentedViewController
+            }
+            topVC?.present(displayCardDetailed, animated: true, completion: nil)
             print(indexPath.row)
         }
     }
@@ -317,10 +304,10 @@ class TaskController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     func requestAllCardsFromAList(id: String){
         self.cardsArr.removeAll()
-        TrelloService.sharedInstance.getCardsRef(listId: id) { (res, data) in
+        TrelloServiceGet.sharedInstance.getCardsRef(listId: id) { (res, data) in
                     if res == nil, let dataEx = data{
                         for(index, _) in dataEx.enumerated(){
-                            print(dataEx[index]["id"])
+//                            print("cards" + "\(dataEx[index]["id"])")
                             let card = TrelloCardModel(dict: dataEx[index])
                             self.cardsArr.append(card)
                             self.requestMembersCard(cardId: card.id)
@@ -336,24 +323,30 @@ class TaskController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
     
     func requestMembersCard(cardId: String){
-        TrelloService.sharedInstance.geTheMembersOfaCard(cardId: cardId) { (res, data) in
+        TrelloServiceGet.sharedInstance.geTheMembersOfaCard(cardId: cardId) { (res, data) in
             if res == nil, let dataEx = data {
-                for(index, _) in dataEx.enumerated(){
-                    print(dataEx)
+                for(_, elem) in dataEx.enumerated(){
+                    let membersData = TrelloCardModelMembers(dict: elem)
+                    self.cardsMembersArr.append(membersData)
                 }
-            }else{
-                print(res)
             }
         }
     }
     
     func requestAllContesCards(id: String){
-        TrelloService.sharedInstance.getCheckLists(cardId: id) { (res, data) in
+        TrelloServiceGet.sharedInstance.getCheckLists(cardId: id) { (res, data) in
             if res == nil, let dataEx = data{
                 for(index, _) in dataEx.enumerated(){
-                    print(dataEx[index]["name"])
+//                    print(dataEx[index]["name"])
                     
-//                    let cardData = TrelloCardModelCheckLists(dict: dataEx[index], dataEx[index]["checkItems"] as! [TrelloCardModelCheckListsItems])
+                    var cardListItemArr = [TrelloCardModelCheckListsItems]()
+                    cardListItemArr.removeAll()
+                    for cardListItem in dataEx[index]["checkItems"] as! [[String : Any]]{
+                        let cardListItem = TrelloCardModelCheckListsItems(dict:  cardListItem )
+                        cardListItemArr.append(cardListItem)
+                    }
+                    let cardCheckListData = TrelloCardModelCheckLists(dict: dataEx[index], cardListItemArr)
+                    self.cardsChecklistsArr.append(cardCheckListData)
                 }
             }else if res != nil{
                 print(res)

@@ -9,10 +9,9 @@
 import Foundation
 import Alamofire
 
-class TrelloService: NSObject {
+class TrelloServiceGet: NSObject {
     
-    static let sharedInstance = TrelloService()
-    typealias JSONStandard = [String: AnyObject]
+    static let sharedInstance = TrelloServiceGet()
     
     let params: Parameters = [
         "key": UserModelTrello.key,
@@ -21,18 +20,15 @@ class TrelloService: NSObject {
     
     func getBoardsRef(completion: @escaping (String?, [JSONStandard]?) -> ()){
         
-//        guard let url = URL(string: urlStr) else { return }
-        
         let boardString = "https://api.trello.com/1/members/me/boards?"
         
         AF.request(boardString, method: .get, parameters: params).responseJSON { (response) in
             if let dataEx = response.data{
-                do{
-                    let parsedData = try JSONSerialization.jsonObject(with: dataEx, options: .mutableContainers) as? [JSONStandard]
-                    completion(nil, parsedData)
-                }catch let errCat{
-                    completion(errCat.localizedDescription, nil)
-                    return
+                let verify = self.verifyResponseData(data: dataEx)
+                if verify.1 == true{
+                    completion(nil, verify.0)
+                }else{
+                    completion(verify.2, nil)
                 }
             }
         }
@@ -46,12 +42,11 @@ class TrelloService: NSObject {
         
         AF.request(boardsString, method: .get, parameters: params).responseJSON { (response) in
             if let dataEx = response.data{
-                do{
-                    let parsedData = try JSONSerialization.jsonObject(with: dataEx, options: .mutableContainers) as? [JSONStandard]
-                    completion(nil, parsedData)
-                }catch let errCat{
-                    completion(errCat.localizedDescription, nil)
-                    return
+                let verify = self.verifyResponseData(data: dataEx)
+                if verify.1 == true{
+                    completion(nil, verify.0)
+                }else{
+                    completion(verify.2, nil)
                 }
             }
         }
@@ -63,12 +58,11 @@ class TrelloService: NSObject {
         
         AF.request(listsString, method: .get, parameters: params).responseJSON { (response) in
             if let dataEx = response.data{
-                do{
-                    let parsedData = try JSONSerialization.jsonObject(with: dataEx, options: .mutableContainers) as? [JSONStandard]
-                    completion(nil, parsedData)
-                }catch let errCat{
-                    completion(errCat.localizedDescription, nil)
-                    return
+                let verify = self.verifyResponseData(data: dataEx)
+                if verify.1 == true{
+                    completion(nil, verify.0)
+                }else{
+                    completion(verify.2, nil)
                 }
             }
         }
@@ -89,12 +83,11 @@ class TrelloService: NSObject {
         
         AF.request(checkLists, method: .get, parameters:  cardParams).responseJSON { (response) in
             if let dataEx = response.data{
-                do{
-                    let parsedData = try JSONSerialization.jsonObject(with: dataEx, options: .mutableContainers) as? [JSONStandard]
-                    completion(nil, parsedData)
-                }catch let errCat{
-                    completion(errCat.localizedDescription, nil)
-                    return
+                let verify = self.verifyResponseData(data: dataEx)
+                if verify.1 == true{
+                    completion(nil, verify.0)
+                }else{
+                    completion(verify.2, nil)
                 }
             }
         }
@@ -113,15 +106,30 @@ class TrelloService: NSObject {
         
         AF.request(membersLists, method: .get, parameters:  membersParams).responseJSON { (response) in
             if let dataEx = response.data{
-                do{
-                    let parsedData = try JSONSerialization.jsonObject(with: dataEx, options: .mutableContainers) as? [JSONStandard]
-                    completion(nil, parsedData)
-                }catch let errCat{
-                    completion(errCat.localizedDescription, nil)
-                    return
+                let verify = self.verifyResponseData(data: dataEx)
+                if verify.1 == true{
+                    completion(nil, verify.0)
+                }else{
+                    completion(verify.2, nil)
                 }
             }
         }
+    }
+    
+    func getTheImageFromAvatar(avatarStr: String, completion: @escaping (Data?, String?) -> ()){
+        
+        let urlStr = "https://trello-avatars.s3.amazonaws.com/" + avatarStr + "/40.png"
+        guard let url = URL(string: urlStr) else { return }
+        
+        URLSession.shared.dataTask(with: url) { (data, response, err) in
+            if err != nil{
+                completion(nil,err?.localizedDescription)
+            }
+            if let dataEx = data{
+                completion(dataEx, nil)
+            }
+        }.resume()
+        
         
     }
     

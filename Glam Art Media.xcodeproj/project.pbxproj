@@ -16,6 +16,8 @@
 		E5110645238C20AF002E019E /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5110644238C20AF002E019E /* ShareViewController.swift */; };
 		E5110648238C20AF002E019E /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5110646238C20AF002E019E /* MainInterface.storyboard */; };
 		E511064C238C20AF002E019E /* ShareExtensionReceipt.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = E5110642238C20AF002E019E /* ShareExtensionReceipt.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		E5119B1D23A2C18800D63026 /* TrelloServicePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5119B1C23A2C18800D63026 /* TrelloServicePost.swift */; };
+		E5119B1F23A5617600D63026 /* TrelloServiceDelete.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5119B1E23A5617600D63026 /* TrelloServiceDelete.swift */; };
 		E54A9C8C238C9EA3009CB9A1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E54A9C8B238C9EA2009CB9A1 /* GoogleService-Info.plist */; };
 		E55893162385D60400C1C025 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55893152385D60400C1C025 /* UserModel.swift */; };
 		E5604A1623888C04004BC225 /* TaskControllerListsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5604A1523888C04004BC225 /* TaskControllerListsCell.swift */; };
@@ -29,17 +31,20 @@
 		E56E0AF32384696A001F119B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E56E0AF12384696A001F119B /* LaunchScreen.storyboard */; };
 		E56E0AFB23846A72001F119B /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56E0AFA23846A72001F119B /* RegisterView.swift */; };
 		E56E0AFD23847794001F119B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E56E0AFC23847794001F119B /* GoogleService-Info.plist */; };
-		E5A08D4D238E987200203BCB /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A08D4A238E987200203BCB /* Bolts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		E5A08D4E238E987200203BCB /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A08D4B238E987200203BCB /* FBSDKLoginKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		E5A08D4F238E987200203BCB /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A08D4C238E987200203BCB /* FBSDKCoreKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		E5A08D5323913BBF00203BCB /* DisplayImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A08D5223913BBF00203BCB /* DisplayImageViewController.swift */; };
 		E5CEE8142384A65A00EB7665 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CEE8132384A65A00EB7665 /* MainController.swift */; };
 		E5CFAD8023998C2A00C0BC30 /* TaskControllerCardsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CFAD7F23998C2A00C0BC30 /* TaskControllerCardsCell.swift */; };
 		E5CFAD82239A6E3700C0BC30 /* DisplayCardDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CFAD81239A6E3700C0BC30 /* DisplayCardDetailsViewController.swift */; };
+		E5CFAD84239C2B6100C0BC30 /* GoogleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CFAD83239C2B6100C0BC30 /* GoogleService.swift */; };
+		E5CFAD86239C2F0B00C0BC30 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CFAD85239C2F0B00C0BC30 /* FirebaseService.swift */; };
+		E5D4470D23A183E9006859BA /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5D4470A23A183E9006859BA /* Bolts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		E5D4470E23A183E9006859BA /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5D4470B23A183E9006859BA /* FBSDKLoginKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		E5D4470F23A183E9006859BA /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5D4470C23A183E9006859BA /* FBSDKCoreKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		E5D4471123A18D06006859BA /* LogInSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D4471023A18D06006859BA /* LogInSignUpViewController.swift */; };
 		E5D97497238719D200D47526 /* UserPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D97496238719D200D47526 /* UserPage.swift */; };
 		E5D9749A2387299400D47526 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D974992387299400D47526 /* Extensions.swift */; };
 		E5D9749D23872DE300D47526 /* UserPageTWCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D9749C23872DE300D47526 /* UserPageTWCell.swift */; };
-		E5D9749F2388775C00D47526 /* TrelloService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D9749E2388775C00D47526 /* TrelloService.swift */; };
+		E5D9749F2388775C00D47526 /* TrelloServiceGet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D9749E2388775C00D47526 /* TrelloServiceGet.swift */; };
 		E5D974A1238879FE00D47526 /* TaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D974A0238879FE00D47526 /* TaskController.swift */; };
 		E5E93DC7239947DF00FB1818 /* customTemplate.json in Resources */ = {isa = PBXBuildFile; fileRef = E5E93DC6239947DF00FB1818 /* customTemplate.json */; };
 /* End PBXBuildFile section */
@@ -85,6 +90,8 @@
 		E5110647238C20AF002E019E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		E5110649238C20AF002E019E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5110651238C230F002E019E /* ShareExtensionReceipt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShareExtensionReceipt.entitlements; sourceTree = "<group>"; };
+		E5119B1C23A2C18800D63026 /* TrelloServicePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrelloServicePost.swift; sourceTree = "<group>"; };
+		E5119B1E23A5617600D63026 /* TrelloServiceDelete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrelloServiceDelete.swift; sourceTree = "<group>"; };
 		E54A9C8B238C9EA2009CB9A1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "GoogleService-Info.plist"; path = "Glam Art Media/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		E55893152385D60400C1C025 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		E5604A1523888C04004BC225 /* TaskControllerListsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskControllerListsCell.swift; sourceTree = "<group>"; };
@@ -100,18 +107,21 @@
 		E56E0AF42384696A001F119B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E56E0AFA23846A72001F119B /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		E56E0AFC23847794001F119B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		E5A08D4A238E987200203BCB /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
-		E5A08D4B238E987200203BCB /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "../../../Downloads/FacebookSDKs-iOS-4.40.0/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
-		E5A08D4C238E987200203BCB /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "../../../Downloads/FacebookSDKs-iOS-4.40.0/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
 		E5A08D5223913BBF00203BCB /* DisplayImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayImageViewController.swift; sourceTree = "<group>"; };
 		E5CEE8132384A65A00EB7665 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		E5CFAD7F23998C2A00C0BC30 /* TaskControllerCardsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskControllerCardsCell.swift; sourceTree = "<group>"; };
 		E5CFAD81239A6E3700C0BC30 /* DisplayCardDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayCardDetailsViewController.swift; sourceTree = "<group>"; };
+		E5CFAD83239C2B6100C0BC30 /* GoogleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleService.swift; sourceTree = "<group>"; };
+		E5CFAD85239C2F0B00C0BC30 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		E5D0CF54238493C5001A47D1 /* Glam Art Media-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Glam Art Media-Bridging-Header.h"; sourceTree = "<group>"; };
+		E5D4470A23A183E9006859BA /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "../../../Downloads/FacebookSDKs-iOS-4.40.0 2/Bolts.framework"; sourceTree = "<group>"; };
+		E5D4470B23A183E9006859BA /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "../../../Downloads/FacebookSDKs-iOS-4.40.0 2/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
+		E5D4470C23A183E9006859BA /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "../../../Downloads/FacebookSDKs-iOS-4.40.0 2/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
+		E5D4471023A18D06006859BA /* LogInSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInSignUpViewController.swift; sourceTree = "<group>"; };
 		E5D97496238719D200D47526 /* UserPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPage.swift; sourceTree = "<group>"; };
 		E5D974992387299400D47526 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E5D9749C23872DE300D47526 /* UserPageTWCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPageTWCell.swift; sourceTree = "<group>"; };
-		E5D9749E2388775C00D47526 /* TrelloService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrelloService.swift; sourceTree = "<group>"; };
+		E5D9749E2388775C00D47526 /* TrelloServiceGet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrelloServiceGet.swift; sourceTree = "<group>"; };
 		E5D974A0238879FE00D47526 /* TaskController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskController.swift; sourceTree = "<group>"; };
 		E5E93DC6239947DF00FB1818 /* customTemplate.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = customTemplate.json; sourceTree = "<group>"; };
 		E5EEAEDD2385B99A0056279F /* Glam Art Media.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Glam Art Media.entitlements"; sourceTree = "<group>"; };
@@ -132,9 +142,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A77A1A55EC578924D1AFB50 /* libPods-Glam Art Media.a in Frameworks */,
-				E5A08D4F238E987200203BCB /* FBSDKCoreKit.framework in Frameworks */,
-				E5A08D4D238E987200203BCB /* Bolts.framework in Frameworks */,
-				E5A08D4E238E987200203BCB /* FBSDKLoginKit.framework in Frameworks */,
+				E5D4470F23A183E9006859BA /* FBSDKCoreKit.framework in Frameworks */,
+				E5D4470D23A183E9006859BA /* Bolts.framework in Frameworks */,
+				E5D4470E23A183E9006859BA /* FBSDKLoginKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,18 +185,69 @@
 			path = ShareExtensionReceipt;
 			sourceTree = "<group>";
 		};
-		E55893112385D52D00C1C025 /* ViewControllers */ = {
+		E5119B1523A2BAAC00D63026 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				E56E0AFA23846A72001F119B /* RegisterView.swift */,
+				E5D4471023A18D06006859BA /* LogInSignUpViewController.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		E5119B1623A2BACA00D63026 /* MainView */ = {
 			isa = PBXGroup;
 			children = (
 				E5CEE8132384A65A00EB7665 /* MainController.swift */,
-				E56E0AFA23846A72001F119B /* RegisterView.swift */,
 				E5D97496238719D200D47526 /* UserPage.swift */,
-				E5D974A0238879FE00D47526 /* TaskController.swift */,
+				E5119B1923A2BB0F00D63026 /* Task */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		E5119B1723A2BADD00D63026 /* OrderAndReceipts */ = {
+			isa = PBXGroup;
+			children = (
 				E5604A1D2389C578004BC225 /* OrderPriceController.swift */,
 				E511063A238C0DDD002E019E /* ReceiptPreviewViewController.swift */,
 				E511063C238C1BCA002E019E /* AllReceiptsViewController.swift */,
+			);
+			path = OrderAndReceipts;
+			sourceTree = "<group>";
+		};
+		E5119B1823A2BAF500D63026 /* DisplayImage */ = {
+			isa = PBXGroup;
+			children = (
 				E5A08D5223913BBF00203BCB /* DisplayImageViewController.swift */,
+			);
+			path = DisplayImage;
+			sourceTree = "<group>";
+		};
+		E5119B1923A2BB0F00D63026 /* Task */ = {
+			isa = PBXGroup;
+			children = (
+				E5D974A0238879FE00D47526 /* TaskController.swift */,
 				E5CFAD81239A6E3700C0BC30 /* DisplayCardDetailsViewController.swift */,
+			);
+			path = Task;
+			sourceTree = "<group>";
+		};
+		E5119B1B23A2BF9E00D63026 /* Trello */ = {
+			isa = PBXGroup;
+			children = (
+				E5119B1C23A2C18800D63026 /* TrelloServicePost.swift */,
+				E5D9749E2388775C00D47526 /* TrelloServiceGet.swift */,
+				E5119B1E23A5617600D63026 /* TrelloServiceDelete.swift */,
+			);
+			path = Trello;
+			sourceTree = "<group>";
+		};
+		E55893112385D52D00C1C025 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E5119B1823A2BAF500D63026 /* DisplayImage */,
+				E5119B1723A2BADD00D63026 /* OrderAndReceipts */,
+				E5119B1623A2BACA00D63026 /* MainView */,
+				E5119B1523A2BAAC00D63026 /* SignUp */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -194,18 +255,13 @@
 		E55893122385D58500C1C025 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				E5D9749E2388775C00D47526 /* TrelloService.swift */,
+				E5119B1B23A2BF9E00D63026 /* Trello */,
 				E5604A172389AAD8004BC225 /* OxeBoxService.swift */,
+				E5CFAD83239C2B6100C0BC30 /* GoogleService.swift */,
 				E5E93DC6239947DF00FB1818 /* customTemplate.json */,
+				E5CFAD85239C2F0B00C0BC30 /* FirebaseService.swift */,
 			);
 			path = Services;
-			sourceTree = "<group>";
-		};
-		E55893132385D59500C1C025 /* VIews */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = VIews;
 			sourceTree = "<group>";
 		};
 		E55893142385D5E400C1C025 /* Models */ = {
@@ -216,13 +272,6 @@
 				E50A9DCC238B1B0F00BC2D36 /* TrelloModel.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		E5604A1F2389C730004BC225 /* Receipts */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Receipts;
 			sourceTree = "<group>";
 		};
 		E56E0ADA23846969001F119B = {
@@ -248,13 +297,11 @@
 		E56E0AE523846969001F119B /* Glam Art Media */ = {
 			isa = PBXGroup;
 			children = (
-				E5A08D4A238E987200203BCB /* Bolts.framework */,
-				E5A08D4C238E987200203BCB /* FBSDKCoreKit.framework */,
-				E5A08D4B238E987200203BCB /* FBSDKLoginKit.framework */,
-				E5604A1F2389C730004BC225 /* Receipts */,
+				E5D4470A23A183E9006859BA /* Bolts.framework */,
+				E5D4470C23A183E9006859BA /* FBSDKCoreKit.framework */,
+				E5D4470B23A183E9006859BA /* FBSDKLoginKit.framework */,
 				E56E0AE623846969001F119B /* AppDelegate.swift */,
 				E56E0AE823846969001F119B /* SceneDelegate.swift */,
-				E55893132385D59500C1C025 /* VIews */,
 				E55893122385D58500C1C025 /* Services */,
 				E55893112385D52D00C1C025 /* ViewControllers */,
 				E5D9749B23872DBB00D47526 /* CustomViews */,
@@ -329,6 +376,7 @@
 				E56E0AE123846969001F119B /* Resources */,
 				98FBDC42F8C23EAFA4376017 /* [CP] Copy Pods Resources */,
 				E5110650238C20AF002E019E /* Embed App Extensions */,
+				4C000AC7FD7CAB1211EF0EBC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -425,6 +473,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		4C000AC7FD7CAB1211EF0EBC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Glam Art Media/Pods-Glam Art Media-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Glam Art Media/Pods-Glam Art Media-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Glam Art Media/Pods-Glam Art Media-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		98FBDC42F8C23EAFA4376017 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -485,20 +550,25 @@
 				E5604A1623888C04004BC225 /* TaskControllerListsCell.swift in Sources */,
 				E50A9DCD238B1B1000BC2D36 /* TrelloModel.swift in Sources */,
 				E5604A182389AAD8004BC225 /* OxeBoxService.swift in Sources */,
+				E5D4471123A18D06006859BA /* LogInSignUpViewController.swift in Sources */,
 				E511063B238C0DDD002E019E /* ReceiptPreviewViewController.swift in Sources */,
 				E56E0AE923846969001F119B /* SceneDelegate.swift in Sources */,
 				E5CFAD8023998C2A00C0BC30 /* TaskControllerCardsCell.swift in Sources */,
 				E5604A1E2389C578004BC225 /* OrderPriceController.swift in Sources */,
+				E5CFAD84239C2B6100C0BC30 /* GoogleService.swift in Sources */,
 				E55893162385D60400C1C025 /* UserModel.swift in Sources */,
 				E5D974A1238879FE00D47526 /* TaskController.swift in Sources */,
 				E5CEE8142384A65A00EB7665 /* MainController.swift in Sources */,
 				E50A9DCF238B1FEB00BC2D36 /* TaskControllerBoardsCell.swift in Sources */,
 				E5A08D5323913BBF00203BCB /* DisplayImageViewController.swift in Sources */,
 				E5CFAD82239A6E3700C0BC30 /* DisplayCardDetailsViewController.swift in Sources */,
-				E5D9749F2388775C00D47526 /* TrelloService.swift in Sources */,
+				E5119B1D23A2C18800D63026 /* TrelloServicePost.swift in Sources */,
+				E5D9749F2388775C00D47526 /* TrelloServiceGet.swift in Sources */,
 				E5604A1C2389BC9D004BC225 /* OxeBoxModel.swift in Sources */,
 				E5D9749D23872DE300D47526 /* UserPageTWCell.swift in Sources */,
+				E5119B1F23A5617600D63026 /* TrelloServiceDelete.swift in Sources */,
 				E5D97497238719D200D47526 /* UserPage.swift in Sources */,
+				E5CFAD86239C2F0B00C0BC30 /* FirebaseService.swift in Sources */,
 				E511063D238C1BCA002E019E /* AllReceiptsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

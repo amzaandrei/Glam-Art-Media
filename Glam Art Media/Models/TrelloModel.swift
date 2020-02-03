@@ -82,7 +82,7 @@ struct TrelloCardModelCheckListsItems {
 struct TrelloCardModelMembers {
     
     var id: String!
-    var avatarHash: String!
+    var avatarHash: String?
     var fullName: String!
     
     init(dict: [String: Any]) {
@@ -92,6 +92,8 @@ struct TrelloCardModelMembers {
     }
     
 }
+
+
 
 
 struct TrelloCardModelBadges {

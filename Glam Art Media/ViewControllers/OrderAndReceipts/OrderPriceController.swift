@@ -34,6 +34,7 @@ class OrderPriceController: UIViewController {
     }
     
     @objc func createBill(){
+//        let apiClient = BTAPIClient(authorization: "sandbox_jynd9tf3_gcbpptcjyks6cjvv")
         OxeboxService.sharedInstance.createBill { (responseData, err) in
             if err == nil{
                 print(responseData)

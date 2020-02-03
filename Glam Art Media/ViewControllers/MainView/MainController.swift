@@ -24,6 +24,12 @@ class MainController: UIViewController, UITableViewDelegate, UITableViewDataSour
         case userController = 4
     }
     
+    lazy var taskView: TaskController = {
+        let view = TaskController()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     lazy var mainIcon: UIImageView = {
         let img = UIImage(systemName: "flame")
         let imageView = UIImageView(image: img)
@@ -165,6 +171,15 @@ class MainController: UIViewController, UITableViewDelegate, UITableViewDataSour
             removeAllSubviews()
             self.previousView = tag
             
+            view.insertSubview(taskView, belowSubview: underStackView)
+            
+            NSLayoutConstraint.activate([
+                taskView.leftAnchor.constraint(equalTo: view.leftAnchor),
+                taskView.rightAnchor.constraint(equalTo: view.rightAnchor),
+                taskView.topAnchor.constraint(equalTo: view.topAnchor),
+                taskView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            ])
+            
         }else if tag == ViewControllers.notificationsController.rawValue{
             removeAllSubviews()
             self.previousView = tag
@@ -173,7 +188,7 @@ class MainController: UIViewController, UITableViewDelegate, UITableViewDataSour
             removeAllSubviews()
             self.previousView = tag
             
-            view.insertSubview(userPageTableView, belowSubview: stack)
+            view.insertSubview(userPageTableView, belowSubview: underStackView)
             view.addSubview(navBar)
             navBar.addSubview(settingsIcon)
             
