@@ -292,7 +292,7 @@ class TaskController: UIView, UICollectionViewDelegate, UICollectionViewDataSour
             /// FIXME: Fatal error: Index out of range
 //            displayCardDetailed.cardCheckLists = cardsChecklistsArr[indexPath.row]
             displayCardDetailed.cardsMembersArr = cardsMembersArr[indexPath.row]
-            var topVC = UIApplication.shared.keyWindow?.rootViewController
+            var topVC = UIApplication.shared.windows.filter {$0.isKeyWindow}.first?.rootViewController
             while((topVC!.presentedViewController) != nil) {
                  topVC = topVC!.presentedViewController
             }

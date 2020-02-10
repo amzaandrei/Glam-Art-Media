@@ -11,7 +11,8 @@ import UIKit
 class UserPage: UIViewController {
     
     override func viewDidLoad() {
-        view.backgroundColor = .red
+        view.backgroundColor = .blue
+        print("userPageController")
     }
     
 }
