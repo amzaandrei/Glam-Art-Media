@@ -13,6 +13,9 @@ target 'Glam Art Media' do
 	pod 'BEMCheckBox'
 	pod 'Braintree'
 	pod 'BraintreeDropIn'
+	 pod 'FBSDKCoreKit'
+	 pod 'FBSDKLoginKit'
+	 pod 'FBSDKShareKit'
 
 end
 

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9A77A1A55EC578924D1AFB50 /* libPods-Glam Art Media.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A601C86B98CB66A4D754C5C /* libPods-Glam Art Media.a */; };
+		B2C85A3C24D6E140005C98FD /* Glam Art Media.xcworkspace in Resources */ = {isa = PBXBuildFile; fileRef = B2C85A3824D6E140005C98FD /* Glam Art Media.xcworkspace */; };
 		B56790A2700EC77F5F57F06F /* libPods-ShareExtensionReceipt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA0A67A7613E82E72FBC21D8 /* libPods-ShareExtensionReceipt.a */; };
 		E50A9DCD238B1B1000BC2D36 /* TrelloModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50A9DCC238B1B0F00BC2D36 /* TrelloModel.swift */; };
 		E50A9DCF238B1FEB00BC2D36 /* TaskControllerBoardsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50A9DCE238B1FEB00BC2D36 /* TaskControllerBoardsCell.swift */; };
@@ -37,9 +38,6 @@
 		E5CFAD82239A6E3700C0BC30 /* DisplayCardDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CFAD81239A6E3700C0BC30 /* DisplayCardDetailsViewController.swift */; };
 		E5CFAD84239C2B6100C0BC30 /* GoogleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CFAD83239C2B6100C0BC30 /* GoogleService.swift */; };
 		E5CFAD86239C2F0B00C0BC30 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CFAD85239C2F0B00C0BC30 /* FirebaseService.swift */; };
-		E5D4470D23A183E9006859BA /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5D4470A23A183E9006859BA /* Bolts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		E5D4470E23A183E9006859BA /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5D4470B23A183E9006859BA /* FBSDKLoginKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		E5D4470F23A183E9006859BA /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5D4470C23A183E9006859BA /* FBSDKCoreKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		E5D4471123A18D06006859BA /* LogInSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D4471023A18D06006859BA /* LogInSignUpViewController.swift */; };
 		E5D97497238719D200D47526 /* UserPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D97496238719D200D47526 /* UserPage.swift */; };
 		E5D9749A2387299400D47526 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D974992387299400D47526 /* Extensions.swift */; };
@@ -60,6 +58,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		B26F73A224D6E37300CBD22C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E5110650238C20AF002E019E /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -78,6 +86,7 @@
 		3A33371C414C5083438C0C12 /* Pods-ShareExtensionReceipt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareExtensionReceipt.release.xcconfig"; path = "Target Support Files/Pods-ShareExtensionReceipt/Pods-ShareExtensionReceipt.release.xcconfig"; sourceTree = "<group>"; };
 		4A601C86B98CB66A4D754C5C /* libPods-Glam Art Media.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Glam Art Media.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DA82F4A22789D5C4B0752BD /* Pods-ShareExtensionReceipt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareExtensionReceipt.debug.xcconfig"; path = "Target Support Files/Pods-ShareExtensionReceipt/Pods-ShareExtensionReceipt.debug.xcconfig"; sourceTree = "<group>"; };
+		B2C85A3824D6E140005C98FD /* Glam Art Media.xcworkspace */ = {isa = PBXFileReference; lastKnownFileType = wrapper.workspace; path = "Glam Art Media.xcworkspace"; sourceTree = SOURCE_ROOT; };
 		BB7A94240380FF2447C817C9 /* Pods-Glam Art Media.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Glam Art Media.debug.xcconfig"; path = "Target Support Files/Pods-Glam Art Media/Pods-Glam Art Media.debug.xcconfig"; sourceTree = "<group>"; };
 		E50A9DCC238B1B0F00BC2D36 /* TrelloModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrelloModel.swift; sourceTree = "<group>"; };
 		E50A9DCE238B1FEB00BC2D36 /* TaskControllerBoardsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskControllerBoardsCell.swift; sourceTree = "<group>"; };
@@ -114,9 +123,6 @@
 		E5CFAD83239C2B6100C0BC30 /* GoogleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleService.swift; sourceTree = "<group>"; };
 		E5CFAD85239C2F0B00C0BC30 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		E5D0CF54238493C5001A47D1 /* Glam Art Media-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Glam Art Media-Bridging-Header.h"; sourceTree = "<group>"; };
-		E5D4470A23A183E9006859BA /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "../../../Downloads/FacebookSDKs-iOS-4.40.0 2/Bolts.framework"; sourceTree = "<group>"; };
-		E5D4470B23A183E9006859BA /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "../../../Downloads/FacebookSDKs-iOS-4.40.0 2/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
-		E5D4470C23A183E9006859BA /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "../../../Downloads/FacebookSDKs-iOS-4.40.0 2/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
 		E5D4471023A18D06006859BA /* LogInSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInSignUpViewController.swift; sourceTree = "<group>"; };
 		E5D97496238719D200D47526 /* UserPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPage.swift; sourceTree = "<group>"; };
 		E5D974992387299400D47526 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -142,9 +148,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A77A1A55EC578924D1AFB50 /* libPods-Glam Art Media.a in Frameworks */,
-				E5D4470F23A183E9006859BA /* FBSDKCoreKit.framework in Frameworks */,
-				E5D4470D23A183E9006859BA /* Bolts.framework in Frameworks */,
-				E5D4470E23A183E9006859BA /* FBSDKLoginKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,9 +300,6 @@
 		E56E0AE523846969001F119B /* Glam Art Media */ = {
 			isa = PBXGroup;
 			children = (
-				E5D4470A23A183E9006859BA /* Bolts.framework */,
-				E5D4470C23A183E9006859BA /* FBSDKCoreKit.framework */,
-				E5D4470B23A183E9006859BA /* FBSDKLoginKit.framework */,
 				E56E0AE623846969001F119B /* AppDelegate.swift */,
 				E56E0AE823846969001F119B /* SceneDelegate.swift */,
 				E55893122385D58500C1C025 /* Services */,
@@ -313,6 +313,7 @@
 				E56E0AFC23847794001F119B /* GoogleService-Info.plist */,
 				E5D0CF54238493C5001A47D1 /* Glam Art Media-Bridging-Header.h */,
 				E5EEAEDD2385B99A0056279F /* Glam Art Media.entitlements */,
+				B2C85A3824D6E140005C98FD /* Glam Art Media.xcworkspace */,
 				E56E0AEE2384696A001F119B /* Preview Content */,
 			);
 			path = "Glam Art Media";
@@ -377,6 +378,7 @@
 				98FBDC42F8C23EAFA4376017 /* [CP] Copy Pods Resources */,
 				E5110650238C20AF002E019E /* Embed App Extensions */,
 				4C000AC7FD7CAB1211EF0EBC /* [CP] Embed Pods Frameworks */,
+				B26F73A224D6E37300CBD22C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -442,6 +444,7 @@
 			files = (
 				E56E0AF32384696A001F119B /* LaunchScreen.storyboard in Resources */,
 				E5E93DC7239947DF00FB1818 /* customTemplate.json in Resources */,
+				B2C85A3C24D6E140005C98FD /* Glam Art Media.xcworkspace in Resources */,
 				E56E0AFD23847794001F119B /* GoogleService-Info.plist in Resources */,
 				E56E0AF02384696A001F119B /* Preview Assets.xcassets in Resources */,
 				E56E0AED2384696A001F119B /* Assets.xcassets in Resources */,
@@ -791,6 +794,12 @@
 					"$(PROJECT_DIR)/Glam\\ Art\\ Media/Preview\\ Content",
 					"$(PROJECT_DIR)/Glam\\ Art\\ Media/Preview\\ Content",
 					"$(PROJECT_DIR)/Glam\\ Art\\ Media",
+					"$(PROJECT_DIR)/Glam\\ Art\\ Media",
+					"$(PROJECT_DIR)/Glam\\ Art\\ Media",
+					"$(PROJECT_DIR)/Glam\\ Art\\ Media",
+					"$(PROJECT_DIR)/Glam\\ Art\\ Media",
+					"$(PROJECT_DIR)/Glam\\ Art\\ Media",
+					"$(PROJECT_DIR)/Glam\\ Art\\ Media",
 				);
 				INFOPLIST_FILE = "Glam Art Media/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -869,6 +878,12 @@
 					"$(PROJECT_DIR)/Glam\\ Art\\ Media",
 					"$(PROJECT_DIR)/Glam\\ Art\\ Media/Preview\\ Content",
 					"$(PROJECT_DIR)/Glam\\ Art\\ Media/Preview\\ Content",
+					"$(PROJECT_DIR)/Glam\\ Art\\ Media",
+					"$(PROJECT_DIR)/Glam\\ Art\\ Media",
+					"$(PROJECT_DIR)/Glam\\ Art\\ Media",
+					"$(PROJECT_DIR)/Glam\\ Art\\ Media",
+					"$(PROJECT_DIR)/Glam\\ Art\\ Media",
+					"$(PROJECT_DIR)/Glam\\ Art\\ Media",
 					"$(PROJECT_DIR)/Glam\\ Art\\ Media",
 				);
 				INFOPLIST_FILE = "Glam Art Media/Info.plist";

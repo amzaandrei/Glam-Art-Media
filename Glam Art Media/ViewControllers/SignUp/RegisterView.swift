@@ -9,19 +9,20 @@
 import UIKit
 import SwiftUI
 import Firebase
-import FBSDKCoreKit
 import FBSDKLoginKit
 import GoogleSignIn
 
-class RegisterView: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, FBSDKLoginButtonDelegate {
+class RegisterView: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+//    LoginButtonDelegate
+    
     
     let userDefaults = UserDefaults()
     let defaults = UserDefaults(suiteName: "group.com.glamartmedia.extension")
     
-    lazy var fbButton: FBSDKLoginButton = {
-        var button = FBSDKLoginButton()
-        button.readPermissions = ["public_profile, email"]
-        button.delegate = self
+    lazy var fbButton: FBLoginButton = {
+        var button = FBLoginButton()
+        button.permissions = ["public_profile, email"]
+//        button.delegate = self
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -222,45 +223,45 @@ class RegisterView: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate, UI
         print("disconnected!")
     }
     
-    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
-        print("Hellya I am loggin in!")
-        if !result.isCancelled{
-            print("Canceled!")
-            return
-        }else{
-            getDataFromFacebook()
-        }
-    }
-    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+//    func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
+//        print("Hellya I am loggin in!")
+//        if !result.isCancelled{
+//            print("Canceled!")
+//            return
+//        }else{
+//            getDataFromFacebook()
+//        }
+//    }
+    func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
         self.dismiss(animated: true, completion: nil)
     }
 
     func getDataFromFacebook(){
-        guard let fbToken = FBSDKAccessToken.current()?.tokenString else { return }
-        let credential = FacebookAuthProvider.credential(withAccessToken: fbToken)
-        Auth.auth().signIn(with: credential) { (user, err) in
-            if err != nil{
-                print(err?.localizedDescription)
-                return
-            }
-            if let uid = user?.user.uid as? String{
-                self.sendDataToFirebase(uid: uid)
-            }
-        }
+//        guard let fbToken = AccessToken.current?.tokenString else { return }
+//        let credential = FacebookAuthProvider.credential(withAccessToken: fbToken)
+//        Auth.auth().signIn(with: credential) { (user, err) in
+//            if err != nil{
+//                print(err?.localizedDescription)
+//                return
+//            }
+//            if let uid = user?.user.uid as? String{
+//                self.sendDataToFirebase(uid: uid)
+//            }
+//        }
     }
 
     func sendDataToFirebase(uid: String){
         let param = ["fields":"email,name,picture.type(large)"]
-        FBSDKGraphRequest(graphPath: "me", parameters: param).start { (conn, result, err) in
-            if err != nil {
-                print(err?.localizedDescription)
-                return
-            }
-
-            guard let dataObj = result as? NSDictionary else { return }
-
-            print(dataObj)
-        }
+//        GraphRequest(graphPath: "me", parameters: param).start { (conn, result, err) in
+//            if err != nil {
+//                print(err?.localizedDescription)
+//                return
+//            }
+//
+//            guard let dataObj = result as? NSDictionary else { return }
+//
+//            print(dataObj)
+//        }
     }
     
     

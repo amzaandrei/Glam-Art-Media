@@ -21,8 +21,6 @@ class OxeboxService: NSObject {
         let billUrl = "https://www.oxebox.com/pbrapi/alpha/v1/index.php/PBR/generateBill"
         let base64StringFinal = UserModelOxebox.partnerId + ":" + UserModelOxebox.authKey
         let base64Encoded = base64StringFinal.toBase64()
-//        let utf8str = base64StringFinal.data(using: .utf8)
-//        guard let base64Encoded = utf8str?.base64EncodedData(options: .lineLength76Characters) else { return }
         let headers: HTTPHeaders = [
             "Authorization": "Basic \(base64Encoded)"
         ]
@@ -37,7 +35,8 @@ class OxeboxService: NSObject {
         print(finalJSON)
 //        return
         var request = URLRequest(url: URL(string: billUrl)!)
-        request.httpMethod = HTTPMethod.post.rawValue
+//        request.httpMethod = HTTPMethod.post.rawValue
+        request.httpMethod = "POST"
         request.setValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
         request.httpBody = myFinalJSONData
         request.method = .post
