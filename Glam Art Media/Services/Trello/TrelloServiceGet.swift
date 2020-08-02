@@ -116,9 +116,9 @@ class TrelloServiceGet: NSObject {
         }
     }
     
-    func getTheImageFromAvatar(avatarStr: String, completion: @escaping (Data?, String?) -> ()){
+    func getTheImageFromAvatar(userId: String, avatarStr: String, completion: @escaping (Data?, String?) -> ()){
         
-        let urlStr = "https://trello-avatars.s3.amazonaws.com/" + avatarStr + "/40.png"
+        let urlStr = "https://trello-avatars.s3.amazonaws.com/" + userId + "/" + avatarStr + "/170.png"
         guard let url = URL(string: urlStr) else { return }
         
         URLSession.shared.dataTask(with: url) { (data, response, err) in

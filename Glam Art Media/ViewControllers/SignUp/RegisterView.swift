@@ -143,7 +143,7 @@ class RegisterView: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate, UI
         guard let emailStr = emailAdressTextField.text else { return }
         guard let passStr = passwordTextField.text else { return }
         
-        FirebaseService.sharedInstance.createUser(emailStr: emailStr, password: passStr, userImage: finPic) { (uid, state) in
+        FirebaseServiceAuth.sharedInstance.createUser(emailStr: emailStr, password: passStr, userImage: finPic) { (uid, state) in
             if state{
                 print("Data uploaded")
                 self.userDefaults.set(true, forKey: "userLogged")

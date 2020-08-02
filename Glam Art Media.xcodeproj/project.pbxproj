@@ -8,7 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		9A77A1A55EC578924D1AFB50 /* libPods-Glam Art Media.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A601C86B98CB66A4D754C5C /* libPods-Glam Art Media.a */; };
+		B22C750E24D70FDC00624CC6 /* TrelloServiceUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22C750D24D70FDC00624CC6 /* TrelloServiceUpdate.swift */; };
 		B2C85A3C24D6E140005C98FD /* Glam Art Media.xcworkspace in Resources */ = {isa = PBXBuildFile; fileRef = B2C85A3824D6E140005C98FD /* Glam Art Media.xcworkspace */; };
+		B2DFD7D324D71A3D00AE1CBF /* SettingsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DFD7D224D71A3D00AE1CBF /* SettingsPage.swift */; };
+		B2DFD7D524D7210000AE1CBF /* LetterImageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DFD7D424D7210000AE1CBF /* LetterImageGenerator.swift */; };
+		B2DFD7D724D7215D00AE1CBF /* SettingsPageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DFD7D624D7215D00AE1CBF /* SettingsPageCell.swift */; };
+		B2DFD7DE24D7306900AE1CBF /* FirebaseServiceAccessData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DFD7DD24D7306900AE1CBF /* FirebaseServiceAccessData.swift */; };
+		B2DFD7E024D7338F00AE1CBF /* FirebaseUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DFD7DF24D7338F00AE1CBF /* FirebaseUser.swift */; };
 		B56790A2700EC77F5F57F06F /* libPods-ShareExtensionReceipt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA0A67A7613E82E72FBC21D8 /* libPods-ShareExtensionReceipt.a */; };
 		E50A9DCD238B1B1000BC2D36 /* TrelloModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50A9DCC238B1B0F00BC2D36 /* TrelloModel.swift */; };
 		E50A9DCF238B1FEB00BC2D36 /* TaskControllerBoardsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50A9DCE238B1FEB00BC2D36 /* TaskControllerBoardsCell.swift */; };
@@ -37,7 +43,7 @@
 		E5CFAD8023998C2A00C0BC30 /* TaskControllerCardsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CFAD7F23998C2A00C0BC30 /* TaskControllerCardsCell.swift */; };
 		E5CFAD82239A6E3700C0BC30 /* DisplayCardDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CFAD81239A6E3700C0BC30 /* DisplayCardDetailsViewController.swift */; };
 		E5CFAD84239C2B6100C0BC30 /* GoogleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CFAD83239C2B6100C0BC30 /* GoogleService.swift */; };
-		E5CFAD86239C2F0B00C0BC30 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CFAD85239C2F0B00C0BC30 /* FirebaseService.swift */; };
+		E5CFAD86239C2F0B00C0BC30 /* FirebaseServiceAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CFAD85239C2F0B00C0BC30 /* FirebaseServiceAuth.swift */; };
 		E5D4471123A18D06006859BA /* LogInSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D4471023A18D06006859BA /* LogInSignUpViewController.swift */; };
 		E5D97497238719D200D47526 /* UserPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D97496238719D200D47526 /* UserPage.swift */; };
 		E5D9749A2387299400D47526 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D974992387299400D47526 /* Extensions.swift */; };
@@ -86,7 +92,13 @@
 		3A33371C414C5083438C0C12 /* Pods-ShareExtensionReceipt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareExtensionReceipt.release.xcconfig"; path = "Target Support Files/Pods-ShareExtensionReceipt/Pods-ShareExtensionReceipt.release.xcconfig"; sourceTree = "<group>"; };
 		4A601C86B98CB66A4D754C5C /* libPods-Glam Art Media.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Glam Art Media.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DA82F4A22789D5C4B0752BD /* Pods-ShareExtensionReceipt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareExtensionReceipt.debug.xcconfig"; path = "Target Support Files/Pods-ShareExtensionReceipt/Pods-ShareExtensionReceipt.debug.xcconfig"; sourceTree = "<group>"; };
+		B22C750D24D70FDC00624CC6 /* TrelloServiceUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrelloServiceUpdate.swift; sourceTree = "<group>"; };
 		B2C85A3824D6E140005C98FD /* Glam Art Media.xcworkspace */ = {isa = PBXFileReference; lastKnownFileType = wrapper.workspace; path = "Glam Art Media.xcworkspace"; sourceTree = SOURCE_ROOT; };
+		B2DFD7D224D71A3D00AE1CBF /* SettingsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPage.swift; sourceTree = "<group>"; };
+		B2DFD7D424D7210000AE1CBF /* LetterImageGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterImageGenerator.swift; sourceTree = "<group>"; };
+		B2DFD7D624D7215D00AE1CBF /* SettingsPageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPageCell.swift; sourceTree = "<group>"; };
+		B2DFD7DD24D7306900AE1CBF /* FirebaseServiceAccessData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseServiceAccessData.swift; sourceTree = "<group>"; };
+		B2DFD7DF24D7338F00AE1CBF /* FirebaseUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUser.swift; sourceTree = "<group>"; };
 		BB7A94240380FF2447C817C9 /* Pods-Glam Art Media.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Glam Art Media.debug.xcconfig"; path = "Target Support Files/Pods-Glam Art Media/Pods-Glam Art Media.debug.xcconfig"; sourceTree = "<group>"; };
 		E50A9DCC238B1B0F00BC2D36 /* TrelloModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrelloModel.swift; sourceTree = "<group>"; };
 		E50A9DCE238B1FEB00BC2D36 /* TaskControllerBoardsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskControllerBoardsCell.swift; sourceTree = "<group>"; };
@@ -121,7 +133,7 @@
 		E5CFAD7F23998C2A00C0BC30 /* TaskControllerCardsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskControllerCardsCell.swift; sourceTree = "<group>"; };
 		E5CFAD81239A6E3700C0BC30 /* DisplayCardDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayCardDetailsViewController.swift; sourceTree = "<group>"; };
 		E5CFAD83239C2B6100C0BC30 /* GoogleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleService.swift; sourceTree = "<group>"; };
-		E5CFAD85239C2F0B00C0BC30 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
+		E5CFAD85239C2F0B00C0BC30 /* FirebaseServiceAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseServiceAuth.swift; sourceTree = "<group>"; };
 		E5D0CF54238493C5001A47D1 /* Glam Art Media-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Glam Art Media-Bridging-Header.h"; sourceTree = "<group>"; };
 		E5D4471023A18D06006859BA /* LogInSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInSignUpViewController.swift; sourceTree = "<group>"; };
 		E5D97496238719D200D47526 /* UserPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPage.swift; sourceTree = "<group>"; };
@@ -176,6 +188,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		B2DFD7D824D72F9400AE1CBF /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				E5CFAD85239C2F0B00C0BC30 /* FirebaseServiceAuth.swift */,
+				B2DFD7DD24D7306900AE1CBF /* FirebaseServiceAccessData.swift */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
 		E5110643238C20AF002E019E /* ShareExtensionReceipt */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +224,7 @@
 				E5CEE8132384A65A00EB7665 /* MainController.swift */,
 				E5D97496238719D200D47526 /* UserPage.swift */,
 				E5119B1923A2BB0F00D63026 /* Task */,
+				B2DFD7D224D71A3D00AE1CBF /* SettingsPage.swift */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -240,6 +262,7 @@
 				E5119B1C23A2C18800D63026 /* TrelloServicePost.swift */,
 				E5D9749E2388775C00D47526 /* TrelloServiceGet.swift */,
 				E5119B1E23A5617600D63026 /* TrelloServiceDelete.swift */,
+				B22C750D24D70FDC00624CC6 /* TrelloServiceUpdate.swift */,
 			);
 			path = Trello;
 			sourceTree = "<group>";
@@ -258,11 +281,11 @@
 		E55893122385D58500C1C025 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				B2DFD7D824D72F9400AE1CBF /* Firebase */,
 				E5119B1B23A2BF9E00D63026 /* Trello */,
 				E5604A172389AAD8004BC225 /* OxeBoxService.swift */,
 				E5CFAD83239C2B6100C0BC30 /* GoogleService.swift */,
 				E5E93DC6239947DF00FB1818 /* customTemplate.json */,
-				E5CFAD85239C2F0B00C0BC30 /* FirebaseService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -273,6 +296,7 @@
 				E55893152385D60400C1C025 /* UserModel.swift */,
 				E5604A1B2389BC9D004BC225 /* OxeBoxModel.swift */,
 				E50A9DCC238B1B0F00BC2D36 /* TrelloModel.swift */,
+				B2DFD7DF24D7338F00AE1CBF /* FirebaseUser.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -331,6 +355,7 @@
 			isa = PBXGroup;
 			children = (
 				E5D974992387299400D47526 /* Extensions.swift */,
+				B2DFD7D424D7210000AE1CBF /* LetterImageGenerator.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -342,6 +367,7 @@
 				E5604A1523888C04004BC225 /* TaskControllerListsCell.swift */,
 				E50A9DCE238B1FEB00BC2D36 /* TaskControllerBoardsCell.swift */,
 				E5CFAD7F23998C2A00C0BC30 /* TaskControllerCardsCell.swift */,
+				B2DFD7D624D7215D00AE1CBF /* SettingsPageCell.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -550,29 +576,35 @@
 				E5D9749A2387299400D47526 /* Extensions.swift in Sources */,
 				E56E0AFB23846A72001F119B /* RegisterView.swift in Sources */,
 				E56E0AE723846969001F119B /* AppDelegate.swift in Sources */,
+				B2DFD7DE24D7306900AE1CBF /* FirebaseServiceAccessData.swift in Sources */,
 				E5604A1623888C04004BC225 /* TaskControllerListsCell.swift in Sources */,
 				E50A9DCD238B1B1000BC2D36 /* TrelloModel.swift in Sources */,
 				E5604A182389AAD8004BC225 /* OxeBoxService.swift in Sources */,
 				E5D4471123A18D06006859BA /* LogInSignUpViewController.swift in Sources */,
+				B2DFD7D724D7215D00AE1CBF /* SettingsPageCell.swift in Sources */,
+				B2DFD7D524D7210000AE1CBF /* LetterImageGenerator.swift in Sources */,
 				E511063B238C0DDD002E019E /* ReceiptPreviewViewController.swift in Sources */,
 				E56E0AE923846969001F119B /* SceneDelegate.swift in Sources */,
 				E5CFAD8023998C2A00C0BC30 /* TaskControllerCardsCell.swift in Sources */,
 				E5604A1E2389C578004BC225 /* OrderPriceController.swift in Sources */,
 				E5CFAD84239C2B6100C0BC30 /* GoogleService.swift in Sources */,
+				B2DFD7E024D7338F00AE1CBF /* FirebaseUser.swift in Sources */,
 				E55893162385D60400C1C025 /* UserModel.swift in Sources */,
 				E5D974A1238879FE00D47526 /* TaskController.swift in Sources */,
 				E5CEE8142384A65A00EB7665 /* MainController.swift in Sources */,
 				E50A9DCF238B1FEB00BC2D36 /* TaskControllerBoardsCell.swift in Sources */,
 				E5A08D5323913BBF00203BCB /* DisplayImageViewController.swift in Sources */,
 				E5CFAD82239A6E3700C0BC30 /* DisplayCardDetailsViewController.swift in Sources */,
+				B2DFD7D324D71A3D00AE1CBF /* SettingsPage.swift in Sources */,
 				E5119B1D23A2C18800D63026 /* TrelloServicePost.swift in Sources */,
 				E5D9749F2388775C00D47526 /* TrelloServiceGet.swift in Sources */,
 				E5604A1C2389BC9D004BC225 /* OxeBoxModel.swift in Sources */,
 				E5D9749D23872DE300D47526 /* UserPageTWCell.swift in Sources */,
 				E5119B1F23A5617600D63026 /* TrelloServiceDelete.swift in Sources */,
 				E5D97497238719D200D47526 /* UserPage.swift in Sources */,
-				E5CFAD86239C2F0B00C0BC30 /* FirebaseService.swift in Sources */,
+				E5CFAD86239C2F0B00C0BC30 /* FirebaseServiceAuth.swift in Sources */,
 				E511063D238C1BCA002E019E /* AllReceiptsViewController.swift in Sources */,
+				B22C750E24D70FDC00624CC6 /* TrelloServiceUpdate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

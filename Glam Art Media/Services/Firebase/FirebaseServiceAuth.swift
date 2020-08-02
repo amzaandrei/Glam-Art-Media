@@ -9,9 +9,9 @@
 import Foundation
 import Firebase
 
-class FirebaseService: NSObject {
+class FirebaseServiceAuth: NSObject {
     
-    static var sharedInstance = FirebaseService()
+    static var sharedInstance = FirebaseServiceAuth()
     
     func createUser(emailStr: String, password: String, userImage: UIImage, completion: @escaping (String, Bool) -> ()){
         Auth.auth().createUser(withEmail: emailStr, password: password) { (user, err) in

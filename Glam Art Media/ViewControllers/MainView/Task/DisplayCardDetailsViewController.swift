@@ -12,22 +12,24 @@ class DisplayCardDetailsViewController: UIViewController {
     
     var cardMainDataArr: TrelloCardModel! {
         didSet{
-            
+            print(cardMainDataArr)
         }
     }
     
     var cardCheckLists: TrelloCardModelCheckLists! {
         didSet{
+            print(cardCheckLists)
         }
     }
     
     var cardsMembersArr: TrelloCardModelMembers? = nil {
         didSet{
-            if let membEx = cardsMembersArr {
-                if let avatarStr = membEx.avatarHash{
-                    TrelloServiceGet.sharedInstance.getTheImageFromAvatar(avatarStr: avatarStr) { (imgData, errStr) in
-                        if errStr == nil{
-                            print(imgData)
+            if let membEx = cardsMembersArr, let avatarStr = membEx.avatarHash, let userId = membEx.id {
+                TrelloServiceGet.sharedInstance.getTheImageFromAvatar(userId: userId, avatarStr: avatarStr) { (imgData, errStr) in
+                    if errStr == nil{
+                        guard let imgDataExt = imgData else { return }
+                        DispatchQueue.main.async {
+                            self.imageViewMembers.image = UIImage(data: imgDataExt)
                         }
                     }
                 }
@@ -64,7 +66,7 @@ class DisplayCardDetailsViewController: UIViewController {
     }()
     
     let imageViewMembers: UIImageView = {
-        let image = UIImage()
+        let image = UIImage(named: "bell")
         let imageView = UIImageView(image: image)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.layer.cornerRadius = 10
@@ -81,16 +83,18 @@ class DisplayCardDetailsViewController: UIViewController {
         view.addSubview(imageViewMembers)
         
         addConstraints()
-//        createNewCard(listId: "5dd2c24f1c05905123bf3940")
-//        deleteCard(cardId: "5df53580acd7e81d287e6904")
         
-        /// FIXME: functia asta nu trebuie sa fie aici dar in Taskcontroller
-        addList(boardId: "5dd2acdeaeb5c58893100e2d")
+        //FIXME: functia asta nu trebuie sa fie aici dar in Taskcontroller
+//        addList(boardId: "5dd2acdeaeb5c58893100e2d")
+        updateContentOfCard(cardId: "5dd57e2f54540f32c5369ebb")
     }
     
     func addConstraints(){
         NSLayoutConstraint.activate([
-            
+            imageViewMembers.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 25),
+            imageViewMembers.topAnchor.constraint(equalTo: view.topAnchor, constant: 25),
+            imageViewMembers.heightAnchor.constraint(equalToConstant: 50),
+            imageViewMembers.widthAnchor.constraint(equalToConstant: 50),
         ])
     }
     
@@ -133,6 +137,22 @@ class DisplayCardDetailsViewController: UIViewController {
                 print("created list")
             }else{
                 print("not created list")
+            }
+        }
+    }
+    
+    func updateContentOfCard(cardId: String){
+        
+        let params: [String: String?] = [
+            "name": "Integration",
+            "desc": "moahaha"
+        ]
+        
+        TrelloServiceUpdate.sharedInstance.updateCard(updateContent: params, cardId: cardId) { (res) in
+            if res {
+                print("content updated")
+            }else {
+                print("content not updated")
             }
         }
         

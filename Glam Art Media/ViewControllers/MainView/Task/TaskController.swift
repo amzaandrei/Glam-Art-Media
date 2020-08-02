@@ -207,6 +207,13 @@ class TaskController: UIView, UICollectionViewDelegate, UICollectionViewDataSour
                     print("list" + "\(initi.id)")
 //                    self.requestAllCardsFromAList(id: initi.id)
                 }
+//                var totalCards = 0
+//                for list in self.listsArr{
+//                    totalCards += self.requestAllCardsFromAList(id: list.id)
+//                }
+//                DispatchQueue.main.async {
+//                    print("totalCards:" + "\(totalCards)")
+//                }
             }
         }
     }
@@ -254,13 +261,16 @@ class TaskController: UIView, UICollectionViewDelegate, UICollectionViewDataSour
     var cellWidth: CGFloat = 280
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        var cellSize: CGSize! = nil
+        //FIXME: width si heigth la cell-uri nu se schimba...
         if collectionView == self.boardsCollectionView{
-            return CGSize(width: 100, height: 30)
+            cellSize = CGSize(width: 100, height: 150)
         }else if collectionView == self.listsCollectionView{
-            return CGSize(width: 100, height: 30)
-        }else{
-            return CGSize(width: cellWidth, height: 200)
+            cellSize = CGSize(width: 100, height: 30)
+        }else if collectionView == self.cardsCollectionView{
+            cellSize = CGSize(width: cellWidth, height: 200)
         }
+        return cellSize
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -281,15 +291,13 @@ class TaskController: UIView, UICollectionViewDelegate, UICollectionViewDataSour
             let boardData = boardsArr[indexPath.row]
             listsArr.removeAll()
             self.requestListsFromBoards(id: boardData.id)
-            print(indexPath.row)
         }else if collectionView == self.listsCollectionView{
             let listData = listsArr[indexPath.row]
             self.requestAllCardsFromAList(id: listData.id)
-            print(indexPath.row)
         }else{
             let displayCardDetailed = DisplayCardDetailsViewController()
             displayCardDetailed.cardMainDataArr = cardsArr[indexPath.row]
-            /// FIXME: Fatal error: Index out of range
+            //FIXME: Fatal error: Index out of range
 //            displayCardDetailed.cardCheckLists = cardsChecklistsArr[indexPath.row]
             displayCardDetailed.cardsMembersArr = cardsMembersArr[indexPath.row]
             var topVC = UIApplication.shared.windows.filter {$0.isKeyWindow}.first?.rootViewController
@@ -303,11 +311,12 @@ class TaskController: UIView, UICollectionViewDelegate, UICollectionViewDataSour
     
     
     func requestAllCardsFromAList(id: String){
+//        var totalCards = 0
         self.cardsArr.removeAll()
         TrelloServiceGet.sharedInstance.getCardsRef(listId: id) { (res, data) in
                     if res == nil, let dataEx = data{
                         for(index, _) in dataEx.enumerated(){
-//                            print("cards" + "\(dataEx[index]["id"])")
+                            print("cards" + "\(dataEx[index]["id"])")
                             let card = TrelloCardModel(dict: dataEx[index])
                             self.cardsArr.append(card)
                             self.requestMembersCard(cardId: card.id)
@@ -318,9 +327,11 @@ class TaskController: UIView, UICollectionViewDelegate, UICollectionViewDataSour
                             }
                             self.requestAllContesCards(id: card.id)
                         }
+//                        totalCards = dataEx.count
                     }
                 }
-        }
+//        return totalCards
+    }
     
     func requestMembersCard(cardId: String){
         TrelloServiceGet.sharedInstance.geTheMembersOfaCard(cardId: cardId) { (res, data) in

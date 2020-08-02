@@ -127,8 +127,6 @@ class MainController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }()
     
     
-    
-    
     override func viewDidLoad() {
         downloadUserData()
         view.backgroundColor = .green
