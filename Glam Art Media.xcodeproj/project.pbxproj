@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		9A77A1A55EC578924D1AFB50 /* libPods-Glam Art Media.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A601C86B98CB66A4D754C5C /* libPods-Glam Art Media.a */; };
+		B207980724D8A6C700743F9E /* UploaderImagePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B207980624D8A6C700743F9E /* UploaderImagePage.swift */; };
+		B207980C24D8A79000743F9E /* PinterestLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B207980B24D8A79000743F9E /* PinterestLayout.swift */; };
+		B207980E24D8AEB800743F9E /* PinterestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B207980D24D8AEB800743F9E /* PinterestCell.swift */; };
 		B22C750E24D70FDC00624CC6 /* TrelloServiceUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22C750D24D70FDC00624CC6 /* TrelloServiceUpdate.swift */; };
 		B2C85A3C24D6E140005C98FD /* Glam Art Media.xcworkspace in Resources */ = {isa = PBXBuildFile; fileRef = B2C85A3824D6E140005C98FD /* Glam Art Media.xcworkspace */; };
 		B2DFD7D324D71A3D00AE1CBF /* SettingsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DFD7D224D71A3D00AE1CBF /* SettingsPage.swift */; };
@@ -15,6 +18,8 @@
 		B2DFD7D724D7215D00AE1CBF /* SettingsPageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DFD7D624D7215D00AE1CBF /* SettingsPageCell.swift */; };
 		B2DFD7DE24D7306900AE1CBF /* FirebaseServiceAccessData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DFD7DD24D7306900AE1CBF /* FirebaseServiceAccessData.swift */; };
 		B2DFD7E024D7338F00AE1CBF /* FirebaseUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DFD7DF24D7338F00AE1CBF /* FirebaseUser.swift */; };
+		B2DFD7E324D83C9F00AE1CBF /* CountryCodePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DFD7E224D83C9F00AE1CBF /* CountryCodePage.swift */; };
+		B2DFD7E724D8414800AE1CBF /* CountryCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DFD7E624D8414800AE1CBF /* CountryCode.swift */; };
 		B56790A2700EC77F5F57F06F /* libPods-ShareExtensionReceipt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA0A67A7613E82E72FBC21D8 /* libPods-ShareExtensionReceipt.a */; };
 		E50A9DCD238B1B1000BC2D36 /* TrelloModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50A9DCC238B1B0F00BC2D36 /* TrelloModel.swift */; };
 		E50A9DCF238B1FEB00BC2D36 /* TaskControllerBoardsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50A9DCE238B1FEB00BC2D36 /* TaskControllerBoardsCell.swift */; };
@@ -92,6 +97,9 @@
 		3A33371C414C5083438C0C12 /* Pods-ShareExtensionReceipt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareExtensionReceipt.release.xcconfig"; path = "Target Support Files/Pods-ShareExtensionReceipt/Pods-ShareExtensionReceipt.release.xcconfig"; sourceTree = "<group>"; };
 		4A601C86B98CB66A4D754C5C /* libPods-Glam Art Media.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Glam Art Media.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DA82F4A22789D5C4B0752BD /* Pods-ShareExtensionReceipt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareExtensionReceipt.debug.xcconfig"; path = "Target Support Files/Pods-ShareExtensionReceipt/Pods-ShareExtensionReceipt.debug.xcconfig"; sourceTree = "<group>"; };
+		B207980624D8A6C700743F9E /* UploaderImagePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploaderImagePage.swift; sourceTree = "<group>"; };
+		B207980B24D8A79000743F9E /* PinterestLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinterestLayout.swift; sourceTree = "<group>"; };
+		B207980D24D8AEB800743F9E /* PinterestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinterestCell.swift; sourceTree = "<group>"; };
 		B22C750D24D70FDC00624CC6 /* TrelloServiceUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrelloServiceUpdate.swift; sourceTree = "<group>"; };
 		B2C85A3824D6E140005C98FD /* Glam Art Media.xcworkspace */ = {isa = PBXFileReference; lastKnownFileType = wrapper.workspace; path = "Glam Art Media.xcworkspace"; sourceTree = SOURCE_ROOT; };
 		B2DFD7D224D71A3D00AE1CBF /* SettingsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPage.swift; sourceTree = "<group>"; };
@@ -99,6 +107,8 @@
 		B2DFD7D624D7215D00AE1CBF /* SettingsPageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPageCell.swift; sourceTree = "<group>"; };
 		B2DFD7DD24D7306900AE1CBF /* FirebaseServiceAccessData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseServiceAccessData.swift; sourceTree = "<group>"; };
 		B2DFD7DF24D7338F00AE1CBF /* FirebaseUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUser.swift; sourceTree = "<group>"; };
+		B2DFD7E224D83C9F00AE1CBF /* CountryCodePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCodePage.swift; sourceTree = "<group>"; };
+		B2DFD7E624D8414800AE1CBF /* CountryCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryCode.swift; sourceTree = "<group>"; };
 		BB7A94240380FF2447C817C9 /* Pods-Glam Art Media.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Glam Art Media.debug.xcconfig"; path = "Target Support Files/Pods-Glam Art Media/Pods-Glam Art Media.debug.xcconfig"; sourceTree = "<group>"; };
 		E50A9DCC238B1B0F00BC2D36 /* TrelloModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrelloModel.swift; sourceTree = "<group>"; };
 		E50A9DCE238B1FEB00BC2D36 /* TaskControllerBoardsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskControllerBoardsCell.swift; sourceTree = "<group>"; };
@@ -188,6 +198,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		B207980A24D8A77600743F9E /* Uploader */ = {
+			isa = PBXGroup;
+			children = (
+				B207980624D8A6C700743F9E /* UploaderImagePage.swift */,
+				B207980B24D8A79000743F9E /* PinterestLayout.swift */,
+			);
+			path = Uploader;
+			sourceTree = "<group>";
+		};
 		B2DFD7D824D72F9400AE1CBF /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
@@ -195,6 +214,15 @@
 				B2DFD7DD24D7306900AE1CBF /* FirebaseServiceAccessData.swift */,
 			);
 			path = Firebase;
+			sourceTree = "<group>";
+		};
+		B2DFD7E124D83C7400AE1CBF /* UserProfileManager */ = {
+			isa = PBXGroup;
+			children = (
+				B2DFD7D224D71A3D00AE1CBF /* SettingsPage.swift */,
+				B2DFD7E224D83C9F00AE1CBF /* CountryCodePage.swift */,
+			);
+			path = UserProfileManager;
 			sourceTree = "<group>";
 		};
 		E5110643238C20AF002E019E /* ShareExtensionReceipt */ = {
@@ -224,7 +252,8 @@
 				E5CEE8132384A65A00EB7665 /* MainController.swift */,
 				E5D97496238719D200D47526 /* UserPage.swift */,
 				E5119B1923A2BB0F00D63026 /* Task */,
-				B2DFD7D224D71A3D00AE1CBF /* SettingsPage.swift */,
+				B2DFD7E124D83C7400AE1CBF /* UserProfileManager */,
+				B207980A24D8A77600743F9E /* Uploader */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -293,6 +322,7 @@
 		E55893142385D5E400C1C025 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B2DFD7E624D8414800AE1CBF /* CountryCode.swift */,
 				E55893152385D60400C1C025 /* UserModel.swift */,
 				E5604A1B2389BC9D004BC225 /* OxeBoxModel.swift */,
 				E50A9DCC238B1B0F00BC2D36 /* TrelloModel.swift */,
@@ -368,6 +398,7 @@
 				E50A9DCE238B1FEB00BC2D36 /* TaskControllerBoardsCell.swift */,
 				E5CFAD7F23998C2A00C0BC30 /* TaskControllerCardsCell.swift */,
 				B2DFD7D624D7215D00AE1CBF /* SettingsPageCell.swift */,
+				B207980D24D8AEB800743F9E /* PinterestCell.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -576,6 +607,7 @@
 				E5D9749A2387299400D47526 /* Extensions.swift in Sources */,
 				E56E0AFB23846A72001F119B /* RegisterView.swift in Sources */,
 				E56E0AE723846969001F119B /* AppDelegate.swift in Sources */,
+				B207980E24D8AEB800743F9E /* PinterestCell.swift in Sources */,
 				B2DFD7DE24D7306900AE1CBF /* FirebaseServiceAccessData.swift in Sources */,
 				E5604A1623888C04004BC225 /* TaskControllerListsCell.swift in Sources */,
 				E50A9DCD238B1B1000BC2D36 /* TrelloModel.swift in Sources */,
@@ -583,6 +615,7 @@
 				E5D4471123A18D06006859BA /* LogInSignUpViewController.swift in Sources */,
 				B2DFD7D724D7215D00AE1CBF /* SettingsPageCell.swift in Sources */,
 				B2DFD7D524D7210000AE1CBF /* LetterImageGenerator.swift in Sources */,
+				B2DFD7E324D83C9F00AE1CBF /* CountryCodePage.swift in Sources */,
 				E511063B238C0DDD002E019E /* ReceiptPreviewViewController.swift in Sources */,
 				E56E0AE923846969001F119B /* SceneDelegate.swift in Sources */,
 				E5CFAD8023998C2A00C0BC30 /* TaskControllerCardsCell.swift in Sources */,
@@ -593,8 +626,10 @@
 				E5D974A1238879FE00D47526 /* TaskController.swift in Sources */,
 				E5CEE8142384A65A00EB7665 /* MainController.swift in Sources */,
 				E50A9DCF238B1FEB00BC2D36 /* TaskControllerBoardsCell.swift in Sources */,
+				B2DFD7E724D8414800AE1CBF /* CountryCode.swift in Sources */,
 				E5A08D5323913BBF00203BCB /* DisplayImageViewController.swift in Sources */,
 				E5CFAD82239A6E3700C0BC30 /* DisplayCardDetailsViewController.swift in Sources */,
+				B207980C24D8A79000743F9E /* PinterestLayout.swift in Sources */,
 				B2DFD7D324D71A3D00AE1CBF /* SettingsPage.swift in Sources */,
 				E5119B1D23A2C18800D63026 /* TrelloServicePost.swift in Sources */,
 				E5D9749F2388775C00D47526 /* TrelloServiceGet.swift in Sources */,
@@ -604,6 +639,7 @@
 				E5D97497238719D200D47526 /* UserPage.swift in Sources */,
 				E5CFAD86239C2F0B00C0BC30 /* FirebaseServiceAuth.swift in Sources */,
 				E511063D238C1BCA002E019E /* AllReceiptsViewController.swift in Sources */,
+				B207980724D8A6C700743F9E /* UploaderImagePage.swift in Sources */,
 				B22C750E24D70FDC00624CC6 /* TrelloServiceUpdate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

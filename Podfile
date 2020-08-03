@@ -16,6 +16,7 @@ target 'Glam Art Media' do
 	 pod 'FBSDKCoreKit'
 	 pod 'FBSDKLoginKit'
 	 pod 'FBSDKShareKit'
+	pod 'Hero'
 
 end
 

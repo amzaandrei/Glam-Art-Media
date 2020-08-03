@@ -212,7 +212,8 @@ class MainController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     @objc func presentSetting(){
-        print("settings tapped")
+        let nav = UINavigationController(rootViewController: SettingsPage())
+        self.present(nav, animated: true)
     }
     
     func removeAllSubviews(){
