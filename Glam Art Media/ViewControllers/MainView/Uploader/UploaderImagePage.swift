@@ -54,7 +54,9 @@ class UploaderImagePage: UIViewController, UICollectionViewDelegate, UICollectio
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! myCell
-        cell.myImage.image = photosAdd[indexPath.row]
+        let images = photosAdd[indexPath.row]
+        cell.myImage.image = images
+        cell.myImage.heroID = "image" + String(describing: indexPath.row)
         return cell
     }
     
@@ -102,6 +104,14 @@ class UploaderImagePage: UIViewController, UICollectionViewDelegate, UICollectio
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.row == 0 {
             addPhotos()
+        }else{
+            let detailPhotoPage = DetailImagePage()
+            let image = photosAdd[indexPath.row]
+            self.hero.isEnabled = true
+            detailPhotoPage.img = image
+            detailPhotoPage.imgId = "image" + String(describing: indexPath.row)
+            detailPhotoPage.modalPresentationStyle = .fullScreen
+            self.present(detailPhotoPage, animated: true)
         }
     }
     
@@ -189,6 +199,7 @@ class UploaderImagePage: UIViewController, UICollectionViewDelegate, UICollectio
     }
     
     func sharePhotoDeepLink(zipUrl: String){
+        //MARK: NEEEDED... I DON'T KNOW....
         let buo = BranchUniversalObject.init(canonicalIdentifier: "content/12345")
         buo.title = "My Content Title"
         buo.contentDescription = "My Content Description"
