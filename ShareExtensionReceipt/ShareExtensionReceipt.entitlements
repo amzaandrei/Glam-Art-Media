@@ -4,7 +4,7 @@
 <dict>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>group.com.glamartmedia.extension</string>
+		<string>group.CY-FF82D474-E46F-11E8-B312-720006925CF0.com.cydia.Extender</string>
 	</array>
 </dict>
 </plist>

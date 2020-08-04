@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FBSDKCoreKit
 import GoogleSignIn
-
+import Branch
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,6 +23,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
+        
+        Branch.getInstance().setIdentity("819241873028698587")
+        
+        Branch.setUseTestBranchKey(true)
+        
         
         return true
     }
@@ -38,6 +43,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return false
     }
     
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        return Branch.getInstance().application(app, open: url, options: options)
+    }
+    
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+      // handler for Universal Links
+        return Branch.getInstance().continue(userActivity)
+    }
+
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+      // handler for Push Notifications
+      Branch.getInstance().handlePushNotification(userInfo)
+    }
     
     // MARK: UISceneSession Lifecycle
 

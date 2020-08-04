@@ -9,6 +9,7 @@
 import UIKit
 import BSImagePicker
 import Photos
+import Branch
 
 class UploaderImagePage: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDragDelegate, UICollectionViewDelegateFlowLayout, PinterestLayoutDelegate {
     
@@ -175,15 +176,40 @@ class UploaderImagePage: UIViewController, UICollectionViewDelegate, UICollectio
         let imgData = convertImgToData()
         UploaderService.sharedInstance.zipImages(data: imgData) { (zipUrl) in
             guard let url = zipUrl else { return }
-            //FIXME: it doesn't upload data to firestore storage (img and zip files)
-            //MARK: the other is fully functional
             FirebaseServiceAccessData.sharedInstance.uploadFile(location: "customers/\(customerName)", file: url) { (err, zipUrl) in
                 if err != nil{
                     print(err)
                 }else{
-                    print(zipUrl)
+                    self.sharePhotoDeepLink(zipUrl: zipUrl!)
                     self.deleteZipFile(url: url)
                 }
+            }
+        }
+        
+    }
+    
+    func sharePhotoDeepLink(zipUrl: String){
+        let buo = BranchUniversalObject.init(canonicalIdentifier: "content/12345")
+        buo.title = "My Content Title"
+        buo.contentDescription = "My Content Description"
+        buo.imageUrl = "https://lorempixel.com/400/400"
+        buo.publiclyIndex = true
+        buo.locallyIndex = true
+        buo.contentMetadata.customMetadata["key1"] = "value1"
+        
+        let lp: BranchLinkProperties = BranchLinkProperties()
+        lp.channel = "facebook"
+        lp.feature = "sharing"
+        lp.campaign = "content 123 launch"
+        lp.stage = "new user"
+        lp.tags = ["one", "two", "three"]
+        
+        
+        lp.addControlParam("$ios_url", withValue: zipUrl)
+        
+        buo.getShortUrl(with: lp) { url, error in
+            buo.showShareSheet(with: lp, andShareText: url, from: self) { (activityType, completed) in
+              print(activityType ?? "")
             }
         }
         

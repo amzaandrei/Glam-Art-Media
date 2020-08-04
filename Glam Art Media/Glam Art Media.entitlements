@@ -2,9 +2,13 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>com.apple.developer.associated-domains</key>
+	<array>
+		<string>applinks:glam-art-media.test-app.link</string>
+	</array>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>group.com.glamartmedia.extension</string>
+		<string>group.CY-FF82D474-E46F-11E8-B312-720006925CF0.com.cydia.Extender</string>
 	</array>
 </dict>
 </plist>

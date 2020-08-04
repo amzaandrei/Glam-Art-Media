@@ -18,6 +18,15 @@
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>glamartmedia</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>NSExtension</key>
@@ -32,8 +41,8 @@
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.share-services</string>
 	</dict>
-    <key>NSExtensionActivationRule</key>
-    <string>SUBQUERY (
+	<key>NSExtensionActivationRule</key>
+	<string>SUBQUERY (
         extensionItems,
         $extensionItem,
         SUBQUERY (
@@ -54,5 +63,9 @@
         ).@count == 1   // Important! to activate extension only on 1 chosen image
         ).@count == 1
     </string>
+	<key>branch_app_domain</key>
+	<string>glam-art-media.test-app.link</string>
+	<key>branch_key</key>
+	<string>key_test_moG7sq8HGmTamSwhl2eTtloovxgv4sNw</string>
 </dict>
 </plist>
