@@ -31,7 +31,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 window.rootViewController = RegisterView()
             }else{
 //                window.rootViewController = UINavigationController(rootViewController: AllReceiptsViewController())
-                window.rootViewController = UINavigationController(rootViewController: UploaderImagePage())
+                window.rootViewController = MainController()
             }
             self.window = window
             window.makeKeyAndVisible()

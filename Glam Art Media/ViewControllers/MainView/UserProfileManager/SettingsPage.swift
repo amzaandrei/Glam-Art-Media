@@ -173,20 +173,3 @@ extension SettingsPage: PrefixDelegate, PrefixProtocol {
     
 }
 
-//struct SettingsPagePreview: PreviewProvider{
-//    static var previews: some View{
-//        ContainerView().edgesIgnoringSafeArea(.all)
-//    }
-//    
-//    struct ContainerView: UIViewControllerRepresentable {
-//        
-//        func updateUIViewController(_ uiViewController: UIViewController, context: UIViewControllerRepresentableContext<SettingsPagePreview.ContainerView>) {
-//            
-//        }
-//        
-//        func makeUIViewController(context: UIViewControllerRepresentableContext<SettingsPagePreview.ContainerView>) -> UIViewController {
-//            return SettingsPage()
-//        }
-//    }
-//    
-//}

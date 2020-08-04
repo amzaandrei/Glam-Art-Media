@@ -14,12 +14,14 @@ struct FirebaseUser {
     var secondName: String!
     var email: String!
     var profileImageUrl: String!
+    var userType: Bool!
     
     init(dict: [String: Any]){
         self.firstName = dict["firstName"] as! String
         self.secondName = dict["lastName"] as! String
         self.email = dict["email"] as! String
         self.profileImageUrl = dict["profileImageUrl"] as! String
+        self.userType = dict["userType"] as! Bool
     }
     
 }

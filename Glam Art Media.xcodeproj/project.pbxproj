@@ -19,6 +19,7 @@
 		B2463B2824D98BD3000CAE4B /* UploaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2463B2724D98BD2000CAE4B /* UploaderService.swift */; };
 		B2463B2B24D98D0A000CAE4B /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = B2463B2A24D98D0A000CAE4B /* Zip */; };
 		B272C58824DA1201008BC2BB /* DetailImagePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B272C58724DA1201008BC2BB /* DetailImagePage.swift */; };
+		B272C58A24DA188A008BC2BB /* SearchUserPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B272C58924DA188A008BC2BB /* SearchUserPage.swift */; };
 		B2C85A3C24D6E140005C98FD /* Glam Art Media.xcworkspace in Resources */ = {isa = PBXBuildFile; fileRef = B2C85A3824D6E140005C98FD /* Glam Art Media.xcworkspace */; };
 		B2DFD7D324D71A3D00AE1CBF /* SettingsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DFD7D224D71A3D00AE1CBF /* SettingsPage.swift */; };
 		B2DFD7D524D7210000AE1CBF /* LetterImageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DFD7D424D7210000AE1CBF /* LetterImageGenerator.swift */; };
@@ -113,6 +114,7 @@
 		B243198324D9FCAE00006B51 /* Branch.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Branch.framework; sourceTree = "<group>"; };
 		B2463B2724D98BD2000CAE4B /* UploaderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploaderService.swift; sourceTree = "<group>"; };
 		B272C58724DA1201008BC2BB /* DetailImagePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailImagePage.swift; sourceTree = "<group>"; };
+		B272C58924DA188A008BC2BB /* SearchUserPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserPage.swift; sourceTree = "<group>"; };
 		B2C85A3824D6E140005C98FD /* Glam Art Media.xcworkspace */ = {isa = PBXFileReference; lastKnownFileType = wrapper.workspace; path = "Glam Art Media.xcworkspace"; sourceTree = SOURCE_ROOT; };
 		B2DFD7D224D71A3D00AE1CBF /* SettingsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPage.swift; sourceTree = "<group>"; };
 		B2DFD7D424D7210000AE1CBF /* LetterImageGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterImageGenerator.swift; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 				E5119B1923A2BB0F00D63026 /* Task */,
 				B2DFD7E124D83C7400AE1CBF /* UserProfileManager */,
 				B207980A24D8A77600743F9E /* Uploader */,
+				B272C58924DA188A008BC2BB /* SearchUserPage.swift */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -675,6 +678,7 @@
 				E5D9749F2388775C00D47526 /* TrelloServiceGet.swift in Sources */,
 				E5604A1C2389BC9D004BC225 /* OxeBoxModel.swift in Sources */,
 				E5D9749D23872DE300D47526 /* UserPageTWCell.swift in Sources */,
+				B272C58A24DA188A008BC2BB /* SearchUserPage.swift in Sources */,
 				E5119B1F23A5617600D63026 /* TrelloServiceDelete.swift in Sources */,
 				E5D97497238719D200D47526 /* UserPage.swift in Sources */,
 				E5CFAD86239C2F0B00C0BC30 /* FirebaseServiceAuth.swift in Sources */,

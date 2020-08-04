@@ -28,6 +28,38 @@ class FirebaseServiceAccessData: NSObject {
         }
     }
     
+    func getAllCustomers(completion: @escaping (String?, [FirebaseUser]?) -> ()){
+        let ref = Firestore.firestore().collection("users")
+        ref.whereField("userType", isEqualTo: false).getDocuments { (snap, err) in
+            if err != nil {
+                completion(err?.localizedDescription, nil)
+            }
+            guard let docs = snap?.documents else { return }
+            var users = [FirebaseUser]()
+            for doc in docs{
+                let user = FirebaseUser(dict: doc.data())
+                users.append(user)
+            }
+            completion(nil, users)
+        }
+//        ref.getDocuments { (snap, err) in
+//            if err != nil {
+//                completion(err?.localizedDescription, nil)
+//            }
+//            guard let docs = snap?.documents else { return }
+//            let docsFiltered = docs.filter { (doc) -> Bool in
+//                let data = doc.data()
+//                return (data["userType"] as! Bool) != true
+//            }
+//            var users = [FirebaseUser]()
+//            docsFiltered.forEach { (snap) in
+//                let user = FirebaseUser(dict: snap.data())
+//                users.append(user)
+//            }
+//            completion(nil, users)
+//        }
+    }
+    
     func updateUserData(data: [String: String], completion: @escaping (Bool, String?) -> ()) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         let ref = Firestore.firestore().collection("users").document(uid)

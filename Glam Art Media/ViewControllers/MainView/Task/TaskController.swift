@@ -83,14 +83,14 @@ class TaskController: UIView, UICollectionViewDelegate, UICollectionViewDataSour
         super.init(frame: frame)
         self.backgroundColor = .white
                 
-                self.addSubview(boardsCollectionView)
-                self.addSubview(listsCollectionView)
-                self.addSubview(cardsCollectionView)
-                self.addSubview(profileImage)
-                self.addSubview(userNameLabel)
+        self.addSubview(boardsCollectionView)
+        self.addSubview(listsCollectionView)
+        self.addSubview(cardsCollectionView)
+        self.addSubview(profileImage)
+        self.addSubview(userNameLabel)
 //                self.addSubview(trelloLogInButt)
-                addConstraints()
-                requestBoards()
+        addConstraints()
+        requestBoards()
     }
     
     required init?(coder: NSCoder) {

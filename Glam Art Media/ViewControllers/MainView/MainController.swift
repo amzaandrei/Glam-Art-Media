@@ -30,6 +30,12 @@ class MainController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return view
     }()
     
+    lazy var searchUserView: SearchUserPage = {
+        let view = SearchUserPage()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     lazy var mainIcon: UIImageView = {
         let img = UIImage(systemName: "flame")
         let imageView = UIImageView(image: img)
@@ -155,6 +161,7 @@ class MainController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
     
+    
     var previousView = 0
     
     func addConstraints(tag: Int){
@@ -165,6 +172,15 @@ class MainController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }else if tag == ViewControllers.searchController.rawValue{
             removeAllSubviews()
             self.previousView = tag
+            
+            view.insertSubview(searchUserView, belowSubview: underStackView)
+            
+            NSLayoutConstraint.activate([
+                searchUserView.leftAnchor.constraint(equalTo: view.leftAnchor),
+                searchUserView.rightAnchor.constraint(equalTo: view.rightAnchor),
+                searchUserView.topAnchor.constraint(equalTo: view.topAnchor),
+                searchUserView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            ])
         }else if tag == ViewControllers.taskController.rawValue{
             removeAllSubviews()
             self.previousView = tag
