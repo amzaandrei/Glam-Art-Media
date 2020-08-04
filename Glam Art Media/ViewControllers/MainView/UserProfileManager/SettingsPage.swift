@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftUI
+import Firebase
 
 class SettingsPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate {
     
@@ -97,6 +98,7 @@ class SettingsPage: UIViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     @objc func updateUserContent(){
+        guard let uid = Auth.auth().currentUser?.uid  else { return }
         let indexImg = IndexPath(row: 0, section: 0)
         let indexUsr = IndexPath(row: 1, section: 0)
         let indexEmail = IndexPath(row: 2, section: 0)
@@ -106,7 +108,7 @@ class SettingsPage: UIViewController, UITableViewDelegate, UITableViewDataSource
         guard let imgData = getContent(index: indexImg) as? UIImage else { return }
         
         DispatchQueue.background(background: {
-            FirebaseServiceAccessData.sharedInstance.uploadImg(userImg: imgData) { (url, err) in
+            FirebaseServiceAccessData.sharedInstance.uploadImg(location: "photos/\(uid)", userImg: imgData) { (url, err) in
                 if err != nil{
                     print(err)
                 }else{

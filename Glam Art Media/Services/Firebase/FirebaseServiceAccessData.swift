@@ -40,10 +40,9 @@ class FirebaseServiceAccessData: NSObject {
         }
     }
     
-    func uploadImg(userImg: UIImage, completion: @escaping (String?, String?) -> ()) {
-        guard let uid = Auth.auth().currentUser?.uid else { return }
+    func uploadImg(location: String, userImg: UIImage, completion: @escaping (String?, String?) -> ()) {
         let storageRef = Storage.storage().reference()
-        let userRef = storageRef.child("photos/\(uid)")
+        let userRef = storageRef.child(location)
         
         guard let dataImage = userImg.jpegData(compressionQuality: 0.7) else { return  }
         
@@ -62,6 +61,29 @@ class FirebaseServiceAccessData: NSObject {
                 }
             }
         }
+    }
+    
+    func uploadFile(location: String, file: URL, completion: @escaping (String?, String?) -> ()){
+        
+        let storageRef = Storage.storage().reference()
+        let ref = storageRef.child(location)
+        
+        let uploadTask = ref.putFile(from: file, metadata: nil) { (metada, err) in
+            if err != nil{
+                completion(err?.localizedDescription, nil)
+            }
+            ref.downloadURL { (fileUrl, err2) -> Void in
+                if err2 != nil{
+                    completion(err2?.localizedDescription, nil)
+                }
+                completion(nil, fileUrl?.absoluteString)
+            }
+        }
+        
+        let observer = uploadTask.observe(.progress) { snapshot in
+          print(snapshot.progress) // NSProgress object
+        }
+        
     }
     
 }

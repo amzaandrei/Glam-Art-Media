@@ -7,13 +7,19 @@
 //
 
 import UIKit
+import BSImagePicker
+import Photos
 
 class UploaderImagePage: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDragDelegate, UICollectionViewDelegateFlowLayout, PinterestLayoutDelegate {
     
     
     private let cellId = "cellId"
     
-    let photos = [UIImage(named: "01"),UIImage(named: "02"),UIImage(named: "03"),UIImage(named: "04"),UIImage(named: "05"),UIImage(named: "06"),UIImage(named: "07"),UIImage(named: "08"),UIImage(named: "09"),UIImage(named: "10")]
+    let imagePicker = ImagePickerController()
+    
+    let photos = [UIImage(named: "01"),UIImage(named: "02"),UIImage(named: "03")]
+    
+    var photosAdd = [UIImage]()
     
     lazy var collectionView: UICollectionView = {
         let layout = PinterestLayout()
@@ -29,6 +35,10 @@ class UploaderImagePage: UIViewController, UICollectionViewDelegate, UICollectio
     }()
     
     override func viewDidLoad() {
+        for photo in photos{
+            photosAdd.append(photo!)
+        }
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Ready", style: .plain, target: self, action: #selector(uploadDataToWeTransfer))
         view.backgroundColor = .white
         view.addSubview(collectionView)
         if let layout = collectionView.collectionViewLayout as? PinterestLayout{
@@ -38,19 +48,19 @@ class UploaderImagePage: UIViewController, UICollectionViewDelegate, UICollectio
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return photos.count
+        return photosAdd.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! myCell
-        cell.myImage.image = photos[indexPath.row]
+        cell.myImage.image = photosAdd[indexPath.row]
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath: IndexPath) -> CGFloat {
         var height: CGFloat!
-        let images = photos[indexPath.row]
-        height = images!.size.height
+        let images = photosAdd[indexPath.row]
+        height = images.size.height
         return height
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -87,5 +97,115 @@ class UploaderImagePage: UIViewController, UICollectionViewDelegate, UICollectio
         return [item]
 
     }
-
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            addPhotos()
+        }
+    }
+    
+    func addPhotos(){
+        presentImagePicker(imagePicker, select: { (asset) in
+        }, deselect: { (asset) in
+        }, cancel: { (assets) in
+        }, finish: { (assets) in
+            self.checkPhotoLibraryPermission(assets: assets)
+        })
+    }
+    
+    func checkPhotoLibraryPermission(assets: [PHAsset]){
+            let status = PHPhotoLibrary.authorizationStatus()
+            
+            switch status {
+            case .authorized:
+                self.convertAssetsToImages(assets: assets)
+                break
+                case .denied, .restricted :
+                    print("Users denied acess photos")
+                    break
+                case .notDetermined:
+                    PHPhotoLibrary.requestAuthorization() { status in
+                        switch status {
+                        case .authorized:
+                            self.convertAssetsToImages(assets: assets)
+                            break
+                        case .denied, .restricted:
+                            self.dismiss(animated: true)
+                            break
+                        case .limited:
+                            print("access is limited")
+                            break
+                        case .notDetermined:
+                            break
+                        @unknown default:
+                            break
+                        }
+                    }
+            case .limited:
+                break
+            @unknown default:
+                break
+            }
+    }
+    
+    func convertAssetsToImages(assets: [PHAsset]){
+        if assets.count != 0 {
+            let requestOptions = PHImageRequestOptions()
+                requestOptions.isSynchronous = true
+                requestOptions.deliveryMode = .opportunistic
+            for i in 0..<assets.count{
+                PHImageManager.default().requestImage(for: assets[i], targetSize: PHImageManagerMaximumSize, contentMode: .aspectFit, options: requestOptions) { (image, info) in
+                    self.photosAdd.append(image!)
+                }
+            }
+            //FIXME: nu face pur si simplu reload cu pozele
+            DispatchQueue.main.async {
+                self.collectionView.delegate = self
+                self.collectionView.dataSource = self
+                self.collectionView.reloadData()
+            }
+        }else{
+            print("no photos added")
+            self.dismiss(animated: true)
+        }
+    }
+    
+    @objc func uploadDataToWeTransfer(){
+        let customerName = "Andrei Amza"
+        let imgData = convertImgToData()
+        UploaderService.sharedInstance.zipImages(data: imgData) { (zipUrl) in
+            guard let url = zipUrl else { return }
+            //FIXME: it doesn't upload data to firestore storage (img and zip files)
+            //MARK: the other is fully functional
+            FirebaseServiceAccessData.sharedInstance.uploadFile(location: "customers/\(customerName)", file: url) { (err, zipUrl) in
+                if err != nil{
+                    print(err)
+                }else{
+                    print(zipUrl)
+                    self.deleteZipFile(url: url)
+                }
+            }
+        }
+        
+    }
+    
+    func deleteZipFile(url: URL){
+        do{
+            let fileManager = FileManager.default
+            if fileManager.fileExists(atPath: url.absoluteString){
+                try fileManager.removeItem(atPath: url.absoluteString)
+            }
+        }catch let err{
+            print("Err occured while deleting the file \(err)")
+        }
+    }
+    
+    func convertImgToData() -> [Data]{
+        var imgData = [Data]()
+        for img in photosAdd{
+            imgData.append(img.jpegData(compressionQuality: 0.7)!)
+        }
+        return imgData
+    }
+    
 }
