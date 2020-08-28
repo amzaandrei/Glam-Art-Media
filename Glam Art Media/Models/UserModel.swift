@@ -26,6 +26,7 @@ struct UserModelTrello {
     static var token = "80fdd58ddb7e8b75a369f17481f8d0e7e8fb6dfa5b5cff2983c9aec86d77cc5d"
 }
 
+/* Not aproppiate to use */
 
 struct UserModel {
     

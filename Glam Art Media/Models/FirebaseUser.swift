@@ -24,4 +24,21 @@ struct FirebaseUser {
         self.userType = dict["userType"] as! Bool
     }
     
+    static func downloadImage(urlStr: String) -> UIImage? {
+        
+        guard let url = URL(string: urlStr) else { return nil }
+        var finalImg: UIImage!
+        
+        URLSession.shared.dataTask(with: url) { (data, res, err) in
+            if let err = err {
+                print(err.localizedDescription)
+            }
+            if let downloadData = UIImage(data: data!){
+                finalImg = downloadData
+            }
+        }.resume()
+        
+        return finalImg
+    }
+    
 }

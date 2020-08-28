@@ -12,7 +12,7 @@ import Firebase
 
 class MainController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var userContArr: UserModel! = nil
+    var userContArr: FirebaseUser! = nil
     
     var cellIconsArr: [String] = ["pencil","pencil","pencil","pencil","pencil"]
     
@@ -252,38 +252,20 @@ class MainController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func downloadUserData(){
-        guard let uid = Auth.auth().currentUser?.uid else { return }
-        let ref = Firestore.firestore().collection("users").document(uid)
-        ref.getDocument { (snap, err) in
-            if let err = err{
-                print(err.localizedDescription)
-                return
+        FirebaseServiceAccessData.sharedInstance.getUserData { (err, userData) in
+            if err != nil {
+                print(err?.localizedCapitalized)
+            }else {
+                self.userContArr = userData
+                print(self.userContArr.firstName)
+                DispatchQueue.main.async {
+                    self.currProfilImg.image = FirebaseUser.downloadImage(urlStr: self.userContArr.profileImageUrl)
+                }
             }
-            
-            guard let dataUser = snap?.data() else { return }
-            self.userContArr = UserModel(dict: dataUser)
-            print(self.userContArr.firstName)
-            self.downloadImage(urlStr: self.userContArr.profileImageUrl)
         }
     }
     
-    func downloadImage(urlStr: String){
-        
-        guard let url = URL(string: urlStr) else { return }
-        
-        URLSession.shared.dataTask(with: url) { (data, res, err) in
-            if let err = err{
-                print(err.localizedDescription)
-                return
-            }
-            if let downloadData = UIImage(data: data!){
-                DispatchQueue.main.async {
-//                    self.currProfilImg.image = downloadData
-                }
-            }
-        }.resume()
-        
-    }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
@@ -297,7 +279,14 @@ class MainController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath)
+        if indexPath.row == 2{
+            print("Log Revolut")
+            logInToRevolut()
+        }
+    }
+    
+    func logInToRevolut(){
+        
     }
     
 }
